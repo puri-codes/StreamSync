@@ -22,6 +22,7 @@ type PageConfig = {
   howTitle: string;
   icon: React.ReactNode;
   steps: string[];
+  overview: string[];
 };
 
 const pageConfigs: Record<string, PageConfig> = {
@@ -35,6 +36,10 @@ const pageConfigs: Record<string, PageConfig> = {
     howTitle: "How it works",
     icon: <Sparkles className="w-9 h-9 text-[#0f766e]" />,
     steps: [],
+    overview: [
+      "Pullify is designed to feel simple the first time you use it and still stay useful after repeated visits. You can paste a supported link, fetch the media, and choose a format without needing to learn a new workflow for every platform. That consistency matters for people who download video or audio often, because it reduces friction and keeps the page easy to scan.",
+      "The site also supports practical navigation patterns for search engines and users alike. The platform pages, feature pages, and comparison pages all point back to the same core downloader, which gives the site a clear structure. If you are exploring the service for the first time, the homepage explains the basics, supported platforms, and common use cases in one place.",
+    ],
   },
   "/youtube": {
     title: (
@@ -50,6 +55,10 @@ const pageConfigs: Record<string, PageConfig> = {
       "Paste the link into the search bar and click Fetch Media.",
       "Wait for the format list to load, then choose the quality you want.",
       "Click download and let the queue finish the file for you.",
+    ],
+    overview: [
+      "The YouTube page is built for people who want a direct route into the downloader without extra clutter. It explains how the workflow works, what kind of formats may appear, and why the available options depend on the original source. That makes the page useful for both casual visitors and users who care about quality and speed.",
+      "Because the page stays visually consistent with the rest of the site, visitors can move from reading to acting almost immediately. The supporting copy gives search engines enough context to understand the page’s purpose while still keeping the actual download process front and center.",
     ],
   },
   "/instagram": {
@@ -67,6 +76,10 @@ const pageConfigs: Record<string, PageConfig> = {
       "Review the available streams and pick the best one for your device.",
       "Download the file and save it to your gallery or computer.",
     ],
+    overview: [
+      "The Instagram guide is meant to answer practical questions quickly. Users often arrive looking for a way to save a reel, post, or story link, and this page gives them a straightforward explanation of what happens next. Pullify keeps the process familiar: paste the link, fetch the media, and choose a format if one is available.",
+      "This page is also written to fit a broader SEO strategy by including useful context around supported content types, the limits of the source media, and the relationship between the Instagram page and the rest of the site. That helps the page serve users while still being discoverable in search.",
+    ],
   },
   "/facebook": {
     title: (
@@ -82,6 +95,10 @@ const pageConfigs: Record<string, PageConfig> = {
       "Paste the URL into the search bar on this page.",
       "Let the downloader inspect the media and show the available formats.",
       "Choose the format you prefer and start the download.",
+    ],
+    overview: [
+      "The Facebook page is intentionally practical. It helps visitors understand that the downloader is based on the availability of the original media and that the tool simply exposes the formats that already exist. That keeps the page honest, useful, and aligned with the actual experience inside Pullify.",
+      "For SEO, this page adds a distinct platform-specific entry point without changing the product’s core behavior. It gives search engines context about Facebook video downloading, while visitors get a simple explanation of the steps they need to follow to use the site successfully.",
     ],
   },
   "/tiktok": {
@@ -99,6 +116,10 @@ const pageConfigs: Record<string, PageConfig> = {
       "Wait for the formats to appear and choose the best quality.",
       "Tap download to save the video locally.",
     ],
+    overview: [
+      "TikTok visitors usually want a fast answer, and this page gives them a direct path to the downloader with clear instructions. The page explains what to do with the share link, how the format list works, and how to finish the download once the available options appear. That keeps the experience consistent and easy to trust.",
+      "The wording is intentionally natural rather than promotional, because that tends to read better for users and search engines. It frames the page as a simple utility with a specific purpose, which is exactly what the route needs to communicate.",
+    ],
   },
   "/how-to": {
     title: (
@@ -114,6 +135,10 @@ const pageConfigs: Record<string, PageConfig> = {
       "Paste the link in the search bar and fetch the media information.",
       "Review the available video and audio formats shown below.",
       "Choose the format you want and start the download.",
+    ],
+    overview: [
+      "The how-to page acts as a general guide for users who want a simple explanation of how Pullify works. It introduces the process in plain language, then points visitors toward supported platform pages if they want a more specific walkthrough. That makes it helpful as a catch-all reference without duplicating the product pages.",
+      "It also plays an important SEO role by connecting the main homepage to the platform pages in a way that feels natural. Search engines can see that the site has a clear set of support pages, and users can understand how to move from one page to the next without having to guess where to go.",
     ],
   },
 };
@@ -201,8 +226,13 @@ function MediaHomeContent() {
                   <h3 className="text-sm sm:text-base font-semibold text-[#0f172a] tracking-tight mb-1.5 select-none">
                     {config.howTitle}
                   </h3>
+                  <div className="space-y-4 text-sm text-[#4b5563] leading-7 text-left max-w-2xl mx-auto">
+                    {config.overview.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
                   {config.steps.length > 0 ? (
-                    <div className="text-left max-w-xl mx-auto space-y-3">
+                    <div className="text-left max-w-xl mx-auto space-y-3 mt-6">
                       {config.steps.map((step, index) => (
                         <div key={step} className="flex gap-3 text-sm text-gray-600 leading-relaxed">
                           <span className="w-6 h-6 rounded-full bg-gray-900 text-white flex items-center justify-center text-xs font-semibold shrink-0">
@@ -213,7 +243,7 @@ function MediaHomeContent() {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-xs sm:text-sm text-[#5f6b7a] max-w-md mx-auto leading-relaxed select-none mb-6">
+                    <p className="text-xs sm:text-sm text-[#5f6b7a] max-w-md mx-auto leading-relaxed select-none mb-6 mt-6">
                       Paste a link from your browser or drag-and-drop a video URL anywhere onto the search box. We&apos;ll automatically identify the video and show all available high-definition streams, audio tracks, and container extensions.
                     </p>
                   )}

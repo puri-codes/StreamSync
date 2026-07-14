@@ -20,6 +20,7 @@ type LandingPageProps = {
   description: string;
   h1: string;
   intro: string;
+  body: string[];
   iconKey: "music" | "image" | "list" | "gallery" | "film" | "waves" | "arrow" | "audio" | "eye";
   benefits?: string[];
   steps?: string[];
@@ -83,6 +84,11 @@ function LandingPageContent(props: LandingPageProps) {
           <Icon className="w-10 h-10 text-[#0f766e]" aria-hidden="true" />
         </div>
         <p className="text-sm text-[#5f6b7a] leading-relaxed">{props.intro}</p>
+        <div className="space-y-4 text-sm leading-7 text-[#4b5563]">
+          {props.body.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
 
         <SearchBar url={url} setUrl={setUrl} onSubmit={handleFetch} loading={loading} />
 
