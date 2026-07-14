@@ -80,9 +80,9 @@ function LandingPageContent(props: LandingPageProps) {
 
       <div className="w-full max-w-4xl mx-auto space-y-6">
         <div className="flex justify-center">
-          <Icon className="w-10 h-10 text-gray-900" aria-hidden="true" />
+          <Icon className="w-10 h-10 text-[#0f766e]" aria-hidden="true" />
         </div>
-        <p className="text-sm text-gray-600 leading-relaxed">{props.intro}</p>
+        <p className="text-sm text-[#5f6b7a] leading-relaxed">{props.intro}</p>
 
         <SearchBar url={url} setUrl={setUrl} onSubmit={handleFetch} loading={loading} />
 
@@ -101,24 +101,24 @@ function LandingPageContent(props: LandingPageProps) {
           </AnimatePresence>
         </div>
 
-        <section aria-labelledby="benefits-title" className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
-          <h2 id="benefits-title" className="text-lg font-semibold text-gray-900 mb-4">
+        <section aria-labelledby="benefits-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+          <h2 id="benefits-title" className="text-lg font-semibold text-[#0f172a] mb-4">
             {props.comparisonPoints ? "Comparison points" : "Benefits"}
           </h2>
           <div className="grid gap-3 sm:grid-cols-3">
             {(props.comparisonPoints ?? props.benefits ?? []).map((benefit) => (
-              <div key={benefit} className="text-sm text-gray-600">{benefit}</div>
+              <div key={benefit} className="text-sm text-[#5f6b7a]">{benefit}</div>
             ))}
           </div>
         </section>
 
         {props.steps ? (
-          <section aria-labelledby="steps-title" className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
-            <h2 id="steps-title" className="text-lg font-semibold text-gray-900 mb-4">How it works</h2>
+          <section aria-labelledby="steps-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+            <h2 id="steps-title" className="text-lg font-semibold text-[#0f172a] mb-4">How it works</h2>
             <div className="space-y-3">
               {props.steps.map((step, index) => (
-                <div key={step} className="flex gap-3 text-sm text-gray-600 leading-relaxed">
-                  <span className="w-6 h-6 rounded-full bg-gray-900 text-white flex items-center justify-center text-xs font-semibold shrink-0">{index + 1}</span>
+                <div key={step} className="flex gap-3 text-sm text-[#5f6b7a] leading-relaxed">
+                  <span className="w-6 h-6 rounded-full bg-[#0f172a] text-white flex items-center justify-center text-xs font-semibold shrink-0">{index + 1}</span>
                   <p>{step}</p>
                 </div>
               ))}
@@ -126,23 +126,23 @@ function LandingPageContent(props: LandingPageProps) {
           </section>
         ) : null}
 
-        <section aria-labelledby="faq-title" className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
-          <h2 id="faq-title" className="text-lg font-semibold text-gray-900 mb-4">FAQs</h2>
+        <section aria-labelledby="faq-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+          <h2 id="faq-title" className="text-lg font-semibold text-[#0f172a] mb-4">FAQs</h2>
           <div className="space-y-4">
             {props.faqs.map((faq) => (
               <details key={faq.question} className="group">
-                <summary className="cursor-pointer list-none text-sm font-medium text-gray-900">{faq.question}</summary>
-                <p className="mt-2 text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+                <summary className="cursor-pointer list-none text-sm font-medium text-[#0f172a]">{faq.question}</summary>
+                <p className="mt-2 text-sm text-[#5f6b7a] leading-relaxed">{faq.answer}</p>
               </details>
             ))}
           </div>
         </section>
 
-        <section aria-labelledby="links-title" className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
-          <h2 id="links-title" className="text-lg font-semibold text-gray-900 mb-4">Related pages</h2>
+        <section aria-labelledby="links-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+          <h2 id="links-title" className="text-lg font-semibold text-[#0f172a] mb-4">Related pages</h2>
           <div className="flex flex-wrap gap-3">
             {props.relatedLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+              <Link key={link.href} href={link.href} className="inline-flex items-center gap-2 rounded-full border border-[#d8ded2] px-4 py-2 text-sm text-[#4b5563] hover:bg-[#f3f5ef]">
                 {link.label}
                 <ExternalLink className="w-3.5 h-3.5" />
               </Link>

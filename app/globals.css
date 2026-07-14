@@ -4,6 +4,21 @@
   :root {
     --font-sans: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    --page-bg: #f7f7f2;
+    --surface: #ffffff;
+    --surface-soft: #f3f5ef;
+    --border: #d8ded2;
+    --text: #0f172a;
+    --muted: #5f6b7a;
+    --accent: #0f766e;
+    --accent-soft: #d9f3ef;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at top, rgba(15, 118, 110, 0.08), transparent 30%),
+      linear-gradient(180deg, #fbfbf8 0%, var(--page-bg) 100%);
+    color: var(--text);
   }
 }
 

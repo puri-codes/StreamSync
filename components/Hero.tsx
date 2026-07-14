@@ -25,9 +25,9 @@ export default function Hero({
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#F3F4F6] dark:bg-gray-800 text-[#374151] dark:text-gray-300 text-[10px] font-bold uppercase tracking-wider mb-4 border border-[#E5E7EB] dark:border-gray-700"
+          className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#d9f3ef] text-[#0f766e] text-[10px] font-bold uppercase tracking-wider mb-4 border border-[#b8e6dc]"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#111827] dark:bg-white"></span>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0f766e]"></span>
           {badge}
         </motion.div>
       ) : null}
@@ -36,7 +36,7 @@ export default function Hero({
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="text-4xl sm:text-5xl font-sans font-semibold tracking-tight text-[#111827] dark:text-gray-100 leading-[1.1] mb-2"
+        className="text-4xl sm:text-5xl font-sans font-semibold tracking-tight text-[#0f172a] leading-[1.1] mb-2"
       >
         {title}
       </motion.h1>
@@ -45,7 +45,7 @@ export default function Hero({
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.2 }}
-        className="text-sm text-[#6B7280] dark:text-gray-400 font-medium max-w-lg mx-auto leading-relaxed"
+        className="text-sm text-[#5f6b7a] font-medium max-w-lg mx-auto leading-relaxed"
       >
         {description}
       </motion.p>

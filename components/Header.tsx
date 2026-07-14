@@ -16,7 +16,7 @@ export default function Header() {
             <Download className="w-4.5 h-4.5" />
           </div>
           <span className="text-sm sm:text-base font-semibold tracking-tight text-[#111827] dark:text-gray-100">
-            StreamSync
+            Pullify
           </span>
         </div>
 

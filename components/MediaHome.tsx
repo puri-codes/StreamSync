@@ -33,7 +33,7 @@ const pageConfigs: Record<string, PageConfig> = {
     ),
     description: "Download high quality videos, audio and images from popular platforms.",
     howTitle: "How it works",
-    icon: <Sparkles className="w-9 h-9 text-gray-800" />,
+    icon: <Sparkles className="w-9 h-9 text-[#0f766e]" />,
     steps: [],
   },
   "/youtube": {
@@ -44,7 +44,7 @@ const pageConfigs: Record<string, PageConfig> = {
     ),
     description: "Paste a YouTube link to fetch formats, audio options and downloadable streams.",
     howTitle: "How to download from YouTube",
-    icon: <Youtube className="w-10 h-10 text-red-500" />,
+    icon: <Youtube className="w-10 h-10 text-[#ea580c]" />,
     steps: [
       "Copy the YouTube video link from your browser or the share button.",
       "Paste the link into the search bar and click Fetch Media.",
@@ -60,7 +60,7 @@ const pageConfigs: Record<string, PageConfig> = {
     ),
     description: "Paste an Instagram post, reel, or story link to view the available media options.",
     howTitle: "How to download from Instagram",
-    icon: <Instagram className="w-10 h-10 text-pink-500" />,
+    icon: <Instagram className="w-10 h-10 text-[#db2777]" />,
     steps: [
       "Open the Instagram post or reel you want to save and copy its link.",
       "Paste the link into the search bar and fetch the media details.",
@@ -76,7 +76,7 @@ const pageConfigs: Record<string, PageConfig> = {
     ),
     description: "Paste a Facebook video link and load the available downloadable versions.",
     howTitle: "How to download from Facebook",
-    icon: <Facebook className="w-10 h-10 text-blue-600" />,
+    icon: <Facebook className="w-10 h-10 text-[#2563eb]" />,
     steps: [
       "Find the Facebook video post and copy its public link.",
       "Paste the URL into the search bar on this page.",
@@ -92,7 +92,7 @@ const pageConfigs: Record<string, PageConfig> = {
     ),
     description: "Paste a TikTok link to fetch the video and available download options.",
     howTitle: "How to download from TikTok",
-    icon: <Music2 className="w-10 h-10 text-black" />,
+    icon: <Music2 className="w-10 h-10 text-[#0f172a]" />,
     steps: [
       "Copy the TikTok video link from the share menu.",
       "Paste it into the search field and click Fetch Media.",
@@ -108,7 +108,7 @@ const pageConfigs: Record<string, PageConfig> = {
     ),
     description: "Use the search box to inspect supported links and download the formats you need.",
     howTitle: "How it works",
-    icon: <Sparkles className="w-10 h-10 text-gray-800" />,
+    icon: <Sparkles className="w-10 h-10 text-[#0f766e]" />,
     steps: [
       "Copy a supported media link from YouTube, Instagram, Facebook or TikTok.",
       "Paste the link in the search bar and fetch the media information.",
@@ -165,7 +165,7 @@ function MediaHomeContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F9FAFB] transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-transparent transition-colors duration-200">
       <main className="flex-1 flex flex-col justify-center max-w-6xl w-full mx-auto pb-12">
         <Hero title={config.title} badge="" description={config.description} />
 
@@ -196,9 +196,9 @@ function MediaHomeContent() {
 
             {!loading && !error && !info && (
               <motion.div key="welcome-prompt" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full max-w-3xl mx-auto px-4 mt-12 text-center">
-                <div className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <div className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8 shadow-sm">
                   <div className="flex justify-center mb-4">{config.icon}</div>
-                  <h3 className="text-sm sm:text-base font-semibold text-gray-900 tracking-tight mb-1.5 select-none">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#0f172a] tracking-tight mb-1.5 select-none">
                     {config.howTitle}
                   </h3>
                   {config.steps.length > 0 ? (
@@ -213,26 +213,26 @@ function MediaHomeContent() {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-xs sm:text-sm text-gray-500 max-w-md mx-auto leading-relaxed select-none mb-6">
+                    <p className="text-xs sm:text-sm text-[#5f6b7a] max-w-md mx-auto leading-relaxed select-none mb-6">
                       Paste a link from your browser or drag-and-drop a video URL anywhere onto the search box. We&apos;ll automatically identify the video and show all available high-definition streams, audio tracks, and container extensions.
                     </p>
                   )}
 
-                  <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-gray-400 select-none mt-6">
+                  <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-[#6b7280] select-none mt-6">
                     <span className="flex items-center gap-1">
-                      <Youtube className="w-4 h-4 text-red-500" /> YouTube
+                      <Youtube className="w-4 h-4 text-[#ea580c]" /> YouTube
                     </span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
-                      <Instagram className="w-4 h-4 text-pink-500" /> Instagram
+                      <Instagram className="w-4 h-4 text-[#db2777]" /> Instagram
                     </span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
-                      <Music2 className="w-4 h-4 text-teal-500" /> TikTok
+                      <Music2 className="w-4 h-4 text-[#0f172a]" /> TikTok
                     </span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
-                      <ArrowRight className="w-4 h-4 text-blue-500" /> and many more
+                      <ArrowRight className="w-4 h-4 text-[#2563eb]" /> and many more
                     </span>
                   </div>
                 </div>
@@ -242,17 +242,16 @@ function MediaHomeContent() {
         </div>
 
         <div className="w-full max-w-5xl mx-auto px-4 mt-12 space-y-6">
-          <section className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Supported Platforms</h2>
+          <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+            <h2 className="text-lg font-semibold text-[#0f172a] mb-4">Supported Platforms</h2>
             <div className="flex flex-wrap gap-3">
               {[
                 ["YouTube", "/youtube"],
                 ["Instagram", "/instagram"],
                 ["Facebook", "/facebook"],
                 ["TikTok", "/tiktok"],
-                ["How To", "/how-to"],
               ].map(([label, href]) => (
-                <Link key={href} href={href} className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                <Link key={href} href={href} className="inline-flex items-center gap-2 rounded-full border border-[#d8ded2] px-4 py-2 text-sm text-[#4b5563] hover:bg-[#f3f5ef]">
                   {label}
                   <Link2 className="w-3.5 h-3.5" />
                 </Link>
@@ -262,20 +261,20 @@ function MediaHomeContent() {
 
           <section className="grid gap-4 sm:grid-cols-3">
             {[
-              { icon: <Video className="w-5 h-5 text-gray-900" />, title: "Fast downloads", text: "Use the same downloader flow with minimal steps." },
-              { icon: <Search className="w-5 h-5 text-gray-900" />, title: "Simple search", text: "Paste a link, fetch media details, and choose a format." },
-              { icon: <ShieldCheck className="w-5 h-5 text-gray-900" />, title: "Safe workflow", text: "Preserve a clean interface with clear download states." },
+              { icon: <Video className="w-5 h-5 text-[#0f172a]" />, title: "Fast downloads", text: "Use the same downloader flow with minimal steps." },
+              { icon: <Search className="w-5 h-5 text-[#0f172a]" />, title: "Simple search", text: "Paste a link, fetch media details, and choose a format." },
+              { icon: <ShieldCheck className="w-5 h-5 text-[#0f172a]" />, title: "Safe workflow", text: "Preserve a clean interface with clear download states." },
             ].map((item) => (
-              <div key={item.title} className="bg-white border border-gray-100 rounded-2xl p-6">
+              <div key={item.title} className="bg-white border border-[#d8ded2] rounded-2xl p-6">
                 <div className="mb-3">{item.icon}</div>
-                <h3 className="text-sm font-semibold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{item.text}</p>
+                <h3 className="text-sm font-semibold text-[#0f172a] mb-2">{item.title}</h3>
+                <p className="text-sm text-[#5f6b7a] leading-relaxed">{item.text}</p>
               </div>
             ))}
           </section>
 
-          <section className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">FAQs</h2>
+          <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+            <h2 className="text-lg font-semibold text-[#0f172a] mb-4">FAQs</h2>
             <div className="space-y-4">
               {[
                 ["What platforms are supported?", "You can use the downloader with YouTube, Instagram, Facebook, TikTok and the guides on this site."],
@@ -283,8 +282,8 @@ function MediaHomeContent() {
                 ["Can I use the same workflow everywhere?", "Yes, every page uses the same downloader form and queue behavior."],
               ].map(([q, a]) => (
                 <details key={q} className="group">
-                  <summary className="cursor-pointer list-none text-sm font-medium text-gray-900">{q}</summary>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{a}</p>
+                  <summary className="cursor-pointer list-none text-sm font-medium text-[#0f172a]">{q}</summary>
+                  <p className="mt-2 text-sm text-[#5f6b7a] leading-relaxed">{a}</p>
                 </details>
               ))}
             </div>

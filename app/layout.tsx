@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: siteName,
   title: {
-    default: "Media Downloader - Download Videos From Anywhere",
+    default: "Pullify | Video, Audio, and Social Media Downloader",
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
@@ -15,8 +15,13 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   manifest: "/manifest.webmanifest",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
-    title: "Media Downloader - Download Videos From Anywhere",
+    title: "Pullify | Video, Audio, and Social Media Downloader",
     description: siteDescription,
     url: siteUrl,
     siteName,
@@ -25,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Media Downloader - Download Videos From Anywhere",
+    title: "Pullify | Video, Audio, and Social Media Downloader",
     description: siteDescription,
   },
   robots: {

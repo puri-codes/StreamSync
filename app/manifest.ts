@@ -4,7 +4,7 @@ import { siteName } from "@/lib/seo";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteName,
-    short_name: "StreamSync",
+    short_name: "Pullify",
     description: "Fast media downloader for supported social platforms.",
     start_url: "/",
     display: "standalone",

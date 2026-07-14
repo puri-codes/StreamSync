@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 flex flex-col items-center justify-between gap-6 sm:flex-row text-center sm:text-left">
         <div>
           <p className="text-xs sm:text-sm text-[#111827] dark:text-gray-400 font-semibold">
-            &copy; {new Date().getFullYear()} StreamSync. All rights reserved.
+            &copy; {new Date().getFullYear()} Pullify. All rights reserved.
           </p>
           <p className="text-[11px] text-[#6B7280] dark:text-gray-500 mt-1 max-w-md">
             For personal and educational use. All media is fetched directly from social platforms.
