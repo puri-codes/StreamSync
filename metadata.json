@@ -1,0 +1,6 @@
+{
+  "name": "Media Downloader",
+  "description": "High-quality, simple media downloader supporting multiple video and audio formats.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
