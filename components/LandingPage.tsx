@@ -13,20 +13,32 @@ import { getVideoInfo } from "@/services/downloader";
 import { MediaInfo, Format } from "@/types";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { AudioLines, ArrowDownToLine, ExternalLink, Film, GalleryVertical, Image as ImageIcon, ListVideo, Music2, Waves, EyeOff } from "lucide-react";
 
 type LandingPageProps = {
   title: string;
   description: string;
   h1: string;
   intro: string;
-  icon: LucideIcon;
-  benefits: string[];
-  steps: string[];
+  iconKey: "music" | "image" | "list" | "gallery" | "film" | "waves" | "arrow" | "audio" | "eye";
+  benefits?: string[];
+  steps?: string[];
+  comparisonPoints?: string[];
   faqs: { question: string; answer: string }[];
   relatedLinks: { href: string; label: string }[];
 };
+
+const iconMap = {
+  music: Music2,
+  image: ImageIcon,
+  list: ListVideo,
+  gallery: GalleryVertical,
+  film: Film,
+  waves: Waves,
+  arrow: ArrowDownToLine,
+  audio: AudioLines,
+  eye: EyeOff,
+} as const;
 
 function LandingPageContent(props: LandingPageProps) {
   const [url, setUrl] = useState("");
@@ -37,7 +49,7 @@ function LandingPageContent(props: LandingPageProps) {
   const { showToast } = useToast();
   const { addDownload, queue } = useDownloadManager();
   const activeJobFormatId = queue.find((item) => item.status !== "completed" && item.status !== "failed")?.format_id;
-  const Icon = props.icon;
+  const Icon = iconMap[props.iconKey];
 
   const handleFetch = async (targetUrl: string) => {
     if (!targetUrl.trim()) return;
@@ -67,6 +79,9 @@ function LandingPageContent(props: LandingPageProps) {
       <Hero title={<>{props.h1}</>} badge="" description={props.description} />
 
       <div className="w-full max-w-4xl mx-auto space-y-6">
+        <div className="flex justify-center">
+          <Icon className="w-10 h-10 text-gray-900" aria-hidden="true" />
+        </div>
         <p className="text-sm text-gray-600 leading-relaxed">{props.intro}</p>
 
         <SearchBar url={url} setUrl={setUrl} onSubmit={handleFetch} loading={loading} />
@@ -87,25 +102,29 @@ function LandingPageContent(props: LandingPageProps) {
         </div>
 
         <section aria-labelledby="benefits-title" className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
-          <h2 id="benefits-title" className="text-lg font-semibold text-gray-900 mb-4">Benefits</h2>
+          <h2 id="benefits-title" className="text-lg font-semibold text-gray-900 mb-4">
+            {props.comparisonPoints ? "Comparison points" : "Benefits"}
+          </h2>
           <div className="grid gap-3 sm:grid-cols-3">
-            {props.benefits.map((benefit) => (
+            {(props.comparisonPoints ?? props.benefits ?? []).map((benefit) => (
               <div key={benefit} className="text-sm text-gray-600">{benefit}</div>
             ))}
           </div>
         </section>
 
-        <section aria-labelledby="steps-title" className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
-          <h2 id="steps-title" className="text-lg font-semibold text-gray-900 mb-4">How it works</h2>
-          <div className="space-y-3">
-            {props.steps.map((step, index) => (
-              <div key={step} className="flex gap-3 text-sm text-gray-600 leading-relaxed">
-                <span className="w-6 h-6 rounded-full bg-gray-900 text-white flex items-center justify-center text-xs font-semibold shrink-0">{index + 1}</span>
-                <p>{step}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        {props.steps ? (
+          <section aria-labelledby="steps-title" className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
+            <h2 id="steps-title" className="text-lg font-semibold text-gray-900 mb-4">How it works</h2>
+            <div className="space-y-3">
+              {props.steps.map((step, index) => (
+                <div key={step} className="flex gap-3 text-sm text-gray-600 leading-relaxed">
+                  <span className="w-6 h-6 rounded-full bg-gray-900 text-white flex items-center justify-center text-xs font-semibold shrink-0">{index + 1}</span>
+                  <p>{step}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section aria-labelledby="faq-title" className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
           <h2 id="faq-title" className="text-lg font-semibold text-gray-900 mb-4">FAQs</h2>

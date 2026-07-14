@@ -3,12 +3,15 @@ import { seoPages, siteUrl } from "@/lib/seo";
 import { comparePageSlugs, featurePages } from "@/lib/seo-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const basePages = Object.values(seoPages).map((page, index) => ({
+  const basePages = Object.values(seoPages).map((page, index) => {
+    const changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] = index === 0 ? "daily" : "weekly";
+    return {
     url: `${siteUrl}${page.canonical}`,
     lastModified: new Date(),
-    changeFrequency: index === 0 ? "daily" : "weekly",
+      changeFrequency,
     priority: index === 0 ? 1 : 0.9,
-  }));
+    };
+  });
 
   const featureEntries = featurePages.map((page) => ({
     url: `${siteUrl}/${page.slug}`,

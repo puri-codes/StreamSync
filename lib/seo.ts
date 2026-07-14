@@ -103,9 +103,9 @@ export function buildMetadata(page: SeoPageKey): Metadata {
       googleBot: {
         index: true,
         follow: true,
-        maxSnippet: -1,
-        maxImagePreview: "large",
-        maxVideoPreview: -1,
+        "max-snippet": -1,
+        "max-image-preview": "large",
+        "max-video-preview": -1,
       },
     },
   };
@@ -156,6 +156,12 @@ export function howToJsonLd(page: SeoPageKey) {
     "@type": "HowTo",
     name: config.howToName,
     description: config.description,
+    url: `${siteUrl}${config.canonical}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: siteName,
+      url: siteUrl,
+    },
   };
 }
 

@@ -8,15 +8,16 @@ export function generateStaticParams() {
   return comparePageSlugs.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const slug = params.slug as CompareKey;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const page = comparisonPages.find((item) => item.slug === slug);
   if (!page) return {};
   return comparisonMetadata(page.title, page.description, page.slug);
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const page = getComparisonPage(params.slug as CompareKey);
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const page = getComparisonPage(slug as CompareKey);
   if (!page) notFound();
   return (
     <LandingPage
@@ -27,7 +28,6 @@ export default function Page({ params }: { params: { slug: string } }) {
         { href: "/facebook", label: "Facebook Downloader" },
         { href: "/tiktok", label: "TikTok Downloader" },
       ]}
-      kind="comparison"
     />
   );
 }

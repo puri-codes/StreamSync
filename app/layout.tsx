@@ -1,20 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SiteShell from "@/components/SiteShell";
 import { siteDescription, siteName, siteUrl } from "@/lib/seo";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -28,7 +15,6 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   manifest: "/manifest.webmanifest",
-  themeColor: "#111827",
   openGraph: {
     title: "Media Downloader - Download Videos From Anywhere",
     description: siteDescription,
@@ -59,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en">
       <body
         className="font-sans antialiased text-gray-900 bg-gray-50/50 transition-colors duration-200"
         suppressHydrationWarning
