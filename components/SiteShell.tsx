@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Download, ChevronRight } from "lucide-react";
+import { featurePages } from "@/lib/seo-pages";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -55,6 +56,17 @@ function Footer() {
               </Link>
             ))}
           </div>
+        </div>
+
+        <div className="flex flex-wrap gap-3 text-xs text-gray-500">
+          {featurePages.slice(0, 5).map((page) => (
+            <Link key={page.slug} href={`/${page.slug}`} className="hover:text-gray-900 transition-colors">
+              {page.h1}
+            </Link>
+          ))}
+          <Link href="/compare/y2mate-alternative" className="hover:text-gray-900 transition-colors">
+            Y2Mate Alternative
+          </Link>
         </div>
 
         <p className="text-xs text-gray-500">

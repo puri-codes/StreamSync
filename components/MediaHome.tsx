@@ -13,7 +13,8 @@ import ErrorCard from "@/components/ErrorCard";
 import { getVideoInfo } from "@/services/downloader";
 import { MediaInfo, Format } from "@/types";
 import { motion, AnimatePresence } from "motion/react";
-import { Facebook, Instagram, Music2, Youtube, Sparkles, ArrowRight } from "lucide-react";
+import { Facebook, Instagram, Music2, Youtube, Sparkles, ArrowRight, Video, ShieldCheck, Search, Link2 } from "lucide-react";
+import Link from "next/link";
 
 type PageConfig = {
   title: React.ReactNode;
@@ -238,6 +239,56 @@ function MediaHomeContent() {
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+
+        <div className="w-full max-w-5xl mx-auto px-4 mt-12 space-y-6">
+          <section className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Supported Platforms</h2>
+            <div className="flex flex-wrap gap-3">
+              {[
+                ["YouTube", "/youtube"],
+                ["Instagram", "/instagram"],
+                ["Facebook", "/facebook"],
+                ["TikTok", "/tiktok"],
+                ["How To", "/how-to"],
+              ].map(([label, href]) => (
+                <Link key={href} href={href} className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                  {label}
+                  <Link2 className="w-3.5 h-3.5" />
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section className="grid gap-4 sm:grid-cols-3">
+            {[
+              { icon: <Video className="w-5 h-5 text-gray-900" />, title: "Fast downloads", text: "Use the same downloader flow with minimal steps." },
+              { icon: <Search className="w-5 h-5 text-gray-900" />, title: "Simple search", text: "Paste a link, fetch media details, and choose a format." },
+              { icon: <ShieldCheck className="w-5 h-5 text-gray-900" />, title: "Safe workflow", text: "Preserve a clean interface with clear download states." },
+            ].map((item) => (
+              <div key={item.title} className="bg-white border border-gray-100 rounded-2xl p-6">
+                <div className="mb-3">{item.icon}</div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">FAQs</h2>
+            <div className="space-y-4">
+              {[
+                ["What platforms are supported?", "You can use the downloader with YouTube, Instagram, Facebook, TikTok and the guides on this site."],
+                ["Do I need to change pages to download?", "No. The page layout stays consistent; the platform pages are mostly SEO entry points and guides."],
+                ["Can I use the same workflow everywhere?", "Yes, every page uses the same downloader form and queue behavior."],
+              ].map(([q, a]) => (
+                <details key={q} className="group">
+                  <summary className="cursor-pointer list-none text-sm font-medium text-gray-900">{q}</summary>
+                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
         </div>
       </main>
     </div>

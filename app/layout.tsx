@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SiteShell from "@/components/SiteShell";
+import { siteDescription, siteName, siteUrl } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,28 +16,41 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const appUrl = process.env.APP_URL || "https://media-downloader.example.com";
-
 export const metadata: Metadata = {
-  title: "Media Downloader — Download Videos From Anywhere",
-  description: "Download high quality videos, audio and images from popular platforms. Clean, fast, and completely free of spam or ads.",
-  metadataBase: new URL(appUrl),
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
+  title: {
+    default: "Media Downloader - Download Videos From Anywhere",
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
   alternates: {
     canonical: "/",
   },
+  manifest: "/manifest.webmanifest",
+  themeColor: "#111827",
   openGraph: {
-    title: "Media Downloader — Download Videos From Anywhere",
-    description: "Download high quality videos, audio and images from popular platforms. Clean, fast, and completely free of spam or ads.",
-    url: appUrl,
-    siteName: "Media Downloader",
+    title: "Media Downloader - Download Videos From Anywhere",
+    description: siteDescription,
+    url: siteUrl,
+    siteName,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Media Downloader — Download Videos From Anywhere",
-    description: "Download high quality videos, audio and images from popular platforms. Clean, fast, and completely free of spam or ads.",
+    title: "Media Downloader - Download Videos From Anywhere",
+    description: siteDescription,
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#111827",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -46,7 +60,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans antialiased text-gray-900 bg-gray-50/50 transition-colors duration-200" suppressHydrationWarning>
+      <body
+        className="font-sans antialiased text-gray-900 bg-gray-50/50 transition-colors duration-200"
+        suppressHydrationWarning
+      >
         <SiteShell>{children}</SiteShell>
       </body>
     </html>
