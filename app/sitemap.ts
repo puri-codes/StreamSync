@@ -3,26 +3,28 @@ import { seoPages, siteUrl } from "@/lib/seo";
 import { comparePageSlugs, featurePages } from "@/lib/seo-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
   const basePages = Object.values(seoPages).map((page, index) => {
     const changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] = index === 0 ? "daily" : "weekly";
     return {
-    url: `${siteUrl}${page.canonical}`,
-    lastModified: new Date(),
+      url: `${siteUrl}${page.canonical}`,
+      lastModified: now,
       changeFrequency,
-    priority: index === 0 ? 1 : 0.9,
+      priority: index === 0 ? 1 : 0.9,
     };
   });
 
   const featureEntries = featurePages.map((page) => ({
     url: `${siteUrl}/${page.slug}`,
-    lastModified: new Date(),
+    lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
   const comparisonEntries = comparePageSlugs.map((slug) => ({
     url: `${siteUrl}/compare/${slug}`,
-    lastModified: new Date(),
+    lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
