@@ -13,7 +13,7 @@ type SeoPageConfig = {
 };
 
 export const siteName = "Pullify";
-export const siteUrl = process.env.APP_URL || "https://media-downloader.example.com";
+export const siteUrl = process.env.APP_URL || "https://pullify.algoralabs.site";
 export const siteDescription =
   "Pullify is a fast media downloader for YouTube, Instagram, Facebook, TikTok and more.";
 
