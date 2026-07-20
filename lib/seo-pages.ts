@@ -61,6 +61,33 @@ export const comparisonPages: ComparisonPage[] = [
 
 export const comparePageSlugs = comparisonPages.map((page) => page.slug);
 
+export function getFeatureRelatedLinks(currentSlug: FeatureKey) {
+  return [
+    { href: "/youtube", label: "YouTube Downloader" },
+    { href: "/instagram", label: "Instagram Downloader" },
+    { href: "/facebook", label: "Facebook Downloader" },
+    { href: "/tiktok", label: "TikTok Downloader" },
+    { href: "/how-to", label: "How To Guide" },
+    ...featurePages
+      .filter((page) => page.slug !== currentSlug)
+      .slice(0, 4)
+      .map((page) => ({ href: `/${page.slug}`, label: page.h1 })),
+  ];
+}
+
+export function getComparisonRelatedLinks(currentSlug: CompareKey) {
+  return [
+    { href: "/", label: "Home" },
+    { href: "/youtube", label: "YouTube Downloader" },
+    { href: "/instagram", label: "Instagram Downloader" },
+    { href: "/facebook", label: "Facebook Downloader" },
+    { href: "/tiktok", label: "TikTok Downloader" },
+    ...comparisonPages
+      .filter((page) => page.slug !== currentSlug)
+      .map((page) => ({ href: `/compare/${page.slug}`, label: page.h1 })),
+  ];
+}
+
 export function getFeaturePage(slug: FeatureKey) {
   return featurePages.find((page) => page.slug === slug)!;
 }

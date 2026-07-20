@@ -14,6 +14,7 @@ import { MediaInfo, Format } from "@/types";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { AudioLines, ArrowDownToLine, ExternalLink, Film, GalleryVertical, Image as ImageIcon, ListVideo, Music2, Waves, EyeOff } from "lucide-react";
+import { faqJsonLd } from "@/lib/seo";
 
 type LandingPageProps = {
   title: string;
@@ -77,6 +78,10 @@ function LandingPageContent(props: LandingPageProps) {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(props.faqs)) }}
+      />
       <Hero title={<>{props.h1}</>} badge="" description={props.description} />
 
       <div className="w-full max-w-4xl mx-auto space-y-6">

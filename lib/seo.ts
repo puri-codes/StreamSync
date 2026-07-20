@@ -13,7 +13,16 @@ type SeoPageConfig = {
 };
 
 export const siteName = "Pullify";
-export const siteUrl = process.env.APP_URL || "https://pullify.algoralabs.site";
+function normalizeSiteUrl(value: string) {
+  return value.replace(/\/+$/, "");
+}
+
+export const siteUrl = normalizeSiteUrl(
+  process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.APP_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "") ||
+    "https://pullify.algoralabs.site"
+);
 export const siteDescription =
   "Pullify is a fast media downloader for YouTube, Instagram, Facebook, TikTok and more.";
 
@@ -162,6 +171,21 @@ export function howToJsonLd(page: SeoPageKey) {
       name: siteName,
       url: siteUrl,
     },
+  };
+}
+
+export function faqJsonLd(items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }
 

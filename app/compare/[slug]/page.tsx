@@ -1,6 +1,6 @@
 import LandingPage from "@/components/LandingPage";
 import { comparisonMetadata } from "@/lib/seo";
-import { comparePageSlugs, comparisonPages, getComparisonPage } from "@/lib/seo-pages";
+import { comparePageSlugs, comparisonPages, getComparisonPage, getComparisonRelatedLinks } from "@/lib/seo-pages";
 import type { CompareKey } from "@/lib/seo-pages";
 import { notFound } from "next/navigation";
 
@@ -22,12 +22,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   return (
     <LandingPage
       {...page}
-      relatedLinks={[
-        { href: "/youtube", label: "YouTube Downloader" },
-        { href: "/instagram", label: "Instagram Downloader" },
-        { href: "/facebook", label: "Facebook Downloader" },
-        { href: "/tiktok", label: "TikTok Downloader" },
-      ]}
+      relatedLinks={getComparisonRelatedLinks(page.slug)}
     />
   );
 }
