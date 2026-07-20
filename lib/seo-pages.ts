@@ -68,10 +68,12 @@ export function getFeatureRelatedLinks(currentSlug: FeatureKey) {
     { href: "/facebook", label: "Facebook Downloader" },
     { href: "/tiktok", label: "TikTok Downloader" },
     { href: "/how-to", label: "How To Guide" },
+    { href: "/download-audio", label: "Download Audio" },
     ...featurePages
       .filter((page) => page.slug !== currentSlug)
       .slice(0, 4)
       .map((page) => ({ href: `/${page.slug}`, label: page.h1 })),
+    ...comparisonPages.slice(0, 2).map((page) => ({ href: `/compare/${page.slug}`, label: page.h1 })),
   ];
 }
 
@@ -82,9 +84,12 @@ export function getComparisonRelatedLinks(currentSlug: CompareKey) {
     { href: "/instagram", label: "Instagram Downloader" },
     { href: "/facebook", label: "Facebook Downloader" },
     { href: "/tiktok", label: "TikTok Downloader" },
+    { href: "/how-to", label: "How To Guide" },
+    { href: "/download-mp3", label: "Download MP3" },
     ...comparisonPages
       .filter((page) => page.slug !== currentSlug)
       .map((page) => ({ href: `/compare/${page.slug}`, label: page.h1 })),
+    ...featurePages.slice(0, 2).map((page) => ({ href: `/${page.slug}`, label: page.h1 })),
   ];
 }
 

@@ -192,9 +192,60 @@ function MediaHomeContent() {
   return (
     <div className="min-h-screen flex flex-col bg-transparent transition-colors duration-200">
       <main className="flex-1 flex flex-col justify-center max-w-6xl w-full mx-auto pb-12">
-        <Hero title={config.title} badge="" description={config.description} />
+        <Hero />
 
         <SearchBar url={url} setUrl={setUrl} onSubmit={handleFetch} loading={loading} />
+
+        {pathname === "/" ? (
+          <section className="w-full max-w-5xl mx-auto px-4 mt-10 space-y-6">
+            <div className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0f766e] mb-3">Media downloader</p>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-[#0f172a] tracking-tight">Download Videos From Anywhere</h2>
+              <p className="mt-4 text-sm sm:text-base text-[#4b5563] leading-7">
+                Download high quality videos, audio and images from popular platforms with Pullify, a fast and simple media downloader.
+              </p>
+              <div className="mt-4 space-y-4 text-sm sm:text-base text-[#4b5563] leading-7">
+                <p>
+                  Pullify gives search engines a real, server-rendered explanation of what the site does before the interactive downloader loads.
+                  That makes the homepage easier to understand for crawlers and clearer for people arriving from search.
+                </p>
+                <p>
+                  Use this page to jump into platform-specific guides, compare formats, or learn how the downloader works without having to depend
+                  on client-side interaction alone.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                { title: "Fast workflow", text: "Paste a link, fetch the media, and choose a format with minimal friction." },
+                { title: "Platform hubs", text: "Dedicated pages for YouTube, Instagram, Facebook, and TikTok keep the structure clear." },
+                { title: "Search-friendly", text: "The page includes crawlable copy, internal links, and structured data." },
+              ].map((item) => (
+                <div key={item.title} className="bg-white border border-[#d8ded2] rounded-2xl p-6">
+                  <h3 className="text-sm font-semibold text-[#0f172a] mb-2">{item.title}</h3>
+                  <p className="text-sm text-[#5f6b7a] leading-relaxed">{item.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+              <h2 className="text-lg font-semibold text-[#0f172a] mb-4">Related pages</h2>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  ["YouTube Downloader", "/youtube"],
+                  ["Instagram Downloader", "/instagram"],
+                  ["Facebook Downloader", "/facebook"],
+                  ["TikTok Downloader", "/tiktok"],
+                ].map(([label, href]) => (
+                  <Link key={href} href={href} className="inline-flex items-center rounded-full border border-[#d8ded2] px-4 py-2 text-sm text-[#4b5563] hover:bg-[#f3f5ef]">
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <div className="min-h-[100px] transition-all">
           <AnimatePresence mode="wait">
@@ -221,12 +272,17 @@ function MediaHomeContent() {
 
             {!loading && !error && !info && (
               <motion.div key="welcome-prompt" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full max-w-3xl mx-auto px-4 mt-12 text-center">
-                <div className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8 shadow-sm">
-                  <div className="flex justify-center mb-4">{config.icon}</div>
-                  <h3 className="text-sm sm:text-base font-semibold text-[#0f172a] tracking-tight mb-1.5 select-none">
-                    {config.howTitle}
-                  </h3>
-                  <div className="space-y-4 text-sm text-[#4b5563] leading-7 text-left max-w-2xl mx-auto">
+                <div className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8 shadow-sm text-left">
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="flex justify-center">{config.icon}</div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0f766e]">{config.howTitle}</p>
+                        <h3 className="text-lg sm:text-xl font-semibold text-[#0f172a] tracking-tight">{config.title}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-4 text-sm text-[#4b5563] leading-7 max-w-3xl">
                     {config.overview.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>
                     ))}

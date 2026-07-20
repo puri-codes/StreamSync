@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { seoPages, siteUrl } from "@/lib/seo";
+import { seoPages, joinSiteUrl } from "@/lib/seo";
 import { comparePageSlugs, featurePages } from "@/lib/seo-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const basePages = Object.values(seoPages).map((page, index) => {
     const changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] = index === 0 ? "daily" : "weekly";
     return {
-      url: `${siteUrl}${page.canonical}`,
+      url: joinSiteUrl(page.canonical),
       lastModified: now,
       changeFrequency,
       priority: index === 0 ? 1 : 0.9,
@@ -16,14 +16,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   const featureEntries = featurePages.map((page) => ({
-    url: `${siteUrl}/${page.slug}`,
+    url: joinSiteUrl(`/${page.slug}`),
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
   const comparisonEntries = comparePageSlugs.map((slug) => ({
-    url: `${siteUrl}/compare/${slug}`,
+    url: joinSiteUrl(`/compare/${slug}`),
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.7,

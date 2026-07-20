@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "motion/react";
 
 type HeroProps = {
-  title: React.ReactNode;
+  title?: React.ReactNode;
   badge?: string;
   description?: string;
 };
@@ -15,7 +15,7 @@ export default function Hero({
       Download Videos <br className="hidden sm:inline" /> From Anywhere
     </>
   ),
-  badge = "Cloud Downloader",
+  badge = "Media Downloader",
   description = "Download high quality videos, audio and images from popular platforms.",
 }: HeroProps) {
   return (

@@ -82,17 +82,11 @@ function LandingPageContent(props: LandingPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(props.faqs)) }}
       />
-      <Hero title={<>{props.h1}</>} badge="" description={props.description} />
+      <Hero />
 
       <div className="w-full max-w-4xl mx-auto space-y-6">
         <div className="flex justify-center">
           <Icon className="w-10 h-10 text-[#0f766e]" aria-hidden="true" />
-        </div>
-        <p className="text-sm text-[#5f6b7a] leading-relaxed">{props.intro}</p>
-        <div className="space-y-4 text-sm leading-7 text-[#4b5563]">
-          {props.body.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
         </div>
 
         <SearchBar url={url} setUrl={setUrl} onSubmit={handleFetch} loading={loading} />
@@ -112,6 +106,17 @@ function LandingPageContent(props: LandingPageProps) {
           </AnimatePresence>
         </div>
 
+        <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0f766e] mb-3">Guide</p>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-[#0f172a] tracking-tight mb-3">{props.h1}</h2>
+          <p className="text-sm sm:text-base text-[#4b5563] leading-7 mb-4">{props.intro}</p>
+          <div className="space-y-4 text-sm sm:text-base text-[#4b5563] leading-7">
+            {props.body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+
         <section aria-labelledby="benefits-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
           <h2 id="benefits-title" className="text-lg font-semibold text-[#0f172a] mb-4">
             {props.comparisonPoints ? "Comparison points" : "Benefits"}
@@ -120,6 +125,20 @@ function LandingPageContent(props: LandingPageProps) {
             {(props.comparisonPoints ?? props.benefits ?? []).map((benefit) => (
               <div key={benefit} className="text-sm text-[#5f6b7a]">{benefit}</div>
             ))}
+          </div>
+        </section>
+
+        <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-[#0f172a] mb-4">What this page covers</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-3 text-sm text-[#4b5563] leading-7">
+              <p>This page answers the main search intent for the route and adds enough unique copy for Google to understand why the page exists.</p>
+              <p>It also points users toward related platform guides so they can move between topics without losing context.</p>
+            </div>
+            <div className="space-y-3 text-sm text-[#4b5563] leading-7">
+              <p>Use the form above to fetch a public link, then review the available formats or media options that appear below.</p>
+              <p>The lower sections are intentionally more descriptive than the hero, because that is where the page’s SEO value should live.</p>
+            </div>
           </div>
         </section>
 
@@ -137,6 +156,15 @@ function LandingPageContent(props: LandingPageProps) {
           </section>
         ) : null}
 
+        <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-[#0f172a] mb-4">Troubleshooting</h2>
+          <div className="space-y-4 text-sm text-[#4b5563] leading-7">
+            <p>If a link does not load, confirm that the source post or video is public and still available.</p>
+            <p>If only a few formats appear, that usually means the source platform does not expose more options for that media item.</p>
+            <p>If a download fails, try a different public URL, then compare the page above with the related guides below for the closest matching intent.</p>
+          </div>
+        </section>
+
         <section aria-labelledby="faq-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
           <h2 id="faq-title" className="text-lg font-semibold text-[#0f172a] mb-4">FAQs</h2>
           <div className="space-y-4">
@@ -145,6 +173,18 @@ function LandingPageContent(props: LandingPageProps) {
                 <summary className="cursor-pointer list-none text-sm font-medium text-[#0f172a]">{faq.question}</summary>
                 <p className="mt-2 text-sm text-[#5f6b7a] leading-relaxed">{faq.answer}</p>
               </details>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-[#0f172a] mb-4">More guides</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {props.relatedLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="flex items-center justify-between rounded-xl border border-[#d8ded2] px-4 py-3 text-sm text-[#4b5563] hover:bg-[#f3f5ef]">
+                <span>{link.label}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </Link>
             ))}
           </div>
         </section>

@@ -26,6 +26,10 @@ export const siteUrl = normalizeSiteUrl(
 export const siteDescription =
   "Pullify is a fast media downloader for YouTube, Instagram, Facebook, TikTok and more.";
 
+export function joinSiteUrl(path: string) {
+  return `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 export const seoPages: Record<SeoPageKey, SeoPageConfig> = {
   home: {
     slug: "/",
@@ -96,7 +100,7 @@ export function buildMetadata(page: SeoPageKey): Metadata {
     openGraph: {
       title: config.title,
       description: config.description,
-      url: `${siteUrl}${config.canonical}`,
+      url: joinSiteUrl(config.canonical),
       siteName,
       locale: "en_US",
       type: "website",
@@ -130,13 +134,13 @@ export function breadcrumbJsonLd(page: SeoPageKey) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: `${siteUrl}/`,
+        item: joinSiteUrl("/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: config.h1,
-        item: `${siteUrl}${config.canonical}`,
+        item: joinSiteUrl(config.canonical),
       },
     ],
   };
@@ -149,7 +153,7 @@ export function webpageJsonLd(page: SeoPageKey) {
     "@type": "WebPage",
     name: config.title,
     description: config.description,
-    url: `${siteUrl}${config.canonical}`,
+    url: joinSiteUrl(config.canonical),
     isPartOf: {
       "@type": "WebSite",
       name: siteName,
@@ -165,7 +169,7 @@ export function howToJsonLd(page: SeoPageKey) {
     "@type": "HowTo",
     name: config.howToName,
     description: config.description,
-    url: `${siteUrl}${config.canonical}`,
+    url: joinSiteUrl(config.canonical),
     isPartOf: {
       "@type": "WebSite",
       name: siteName,
@@ -197,7 +201,7 @@ export function featureMetadata(title: string, description: string, slug: string
     openGraph: {
       title,
       description,
-      url: `${siteUrl}/${slug}`,
+    url: joinSiteUrl(`/${slug}`),
       siteName,
       locale: "en_US",
       type: "website",
