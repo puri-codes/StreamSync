@@ -1,6 +1,6 @@
 {
   "generated": "2026-07-27",
-  "note": "Phase 1-3 manifest. word_count is current unique-copy estimate (pre-rewrite) unless status is done, in which case it reflects the rewritten page. status values: not_started | in_progress | done.",
+  "note": "Phase 1-3 manifest. word_count is current unique-copy estimate (pre-rewrite) unless status is done, in which case it reflects the rewritten page. status values: not_started | in_progress | done. PHASE 9/11 VERIFIED: automated crawl of the production build confirms 0 broken internal links, 0 orphan pages, 0 duplicate <title>/canonical tags across 30 pages, 0 JSON-LD parse errors across 106 schema blocks (Organization x30, BreadcrumbList x28, FAQPage x18, SoftwareApplication x18, WebPage x6, HowTo x5, WebSite x1), and rewritten copy + schema confirmed present in the actual static SSR HTML output (not client-rendered).",
   "pages": [
     {
       "url": "/",

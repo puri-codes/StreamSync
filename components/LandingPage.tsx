@@ -14,13 +14,14 @@ import { MediaInfo, Format } from "@/types";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { AudioLines, ArrowDownToLine, ExternalLink, Film, GalleryVertical, Image as ImageIcon, ListVideo, Music2, ShieldCheck, Waves, EyeOff } from "lucide-react";
-import { faqJsonLd } from "@/lib/seo";
+import { faqJsonLd, genericBreadcrumbJsonLd, genericSoftwareApplicationJsonLd } from "@/lib/seo";
 import type { SectionId } from "@/lib/seo-pages";
 
 type LandingPageProps = {
   title: string;
   description: string;
   h1: string;
+  canonicalPath: string;
   directAnswer: string;
   intro: string;
   body: string[];
@@ -176,6 +177,14 @@ function LandingPageContent(props: LandingPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(props.faqs)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(genericSoftwareApplicationJsonLd(props.canonicalPath)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(genericBreadcrumbJsonLd(props.h1, props.canonicalPath)) }}
       />
       <Hero title={props.h1} description={props.description} />
 

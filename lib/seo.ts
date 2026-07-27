@@ -254,12 +254,15 @@ export function organizationJsonLd() {
 }
 
 export function softwareApplicationJsonLd(page: SeoPageKey) {
-  const config = seoPages[page];
+  return genericSoftwareApplicationJsonLd(seoPages[page].canonical);
+}
+
+export function genericSoftwareApplicationJsonLd(canonicalPath: string) {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: siteName,
-    url: joinSiteUrl(config.canonical),
+    url: joinSiteUrl(canonicalPath),
     applicationCategory: "MultimediaApplication",
     operatingSystem: "Any (browser-based)",
     offers: {
