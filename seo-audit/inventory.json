@@ -293,6 +293,15 @@
       "notes": "Named /sitemap-html to avoid clashing with the existing /sitemap.xml XML route. Lists every indexable page grouped by type - confirmed via automated crawl that it eliminates all orphan pages (0 orphans across 29 routes) and every internal link on the site resolves (0 broken links)."
     }
   ],
+  "phase_17_18_accessibility_performance": {
+    "checked": [
+      "Heading hierarchy: verified clean (h1 -> h2 -> h3, no skipped levels) on sampled core and feature pages via built HTML.",
+      "Image alt text: VideoCard.tsx uses the real media title as alt text; SiteShell.tsx logo has descriptive alt; DownloadManager.tsx queue/history thumbnails intentionally use alt=\"\" since the equivalent title text is already rendered adjacent to each thumbnail (correct decorative-image pattern, not a gap).",
+      "No generic 'click here'/'read more' anchor text found anywhere in the codebase (grepped).",
+      "ARIA: aria-label on nav/breadcrumb landmarks, aria-labelledby on new content sections, aria-hidden on decorative icons - all already present or added during the rewrite."
+    ],
+    "known_gap_not_fixed_this_session": "components/DownloadManager.tsx renders two <img> tags (queue + history thumbnails, ~48x32px) instead of next/image (flagged by eslint's no-img-element rule, pre-existing before this session). Left as-is because it's a stateful interactive widget with no way to visually verify in a browser during this session, and the risk/benefit of touching it without that verification wasn't worth it this late in the batch. Low priority: these thumbnails are small, below-the-fold in a fixed widget, not part of the initial LCP-critical paint."
+  },
   "infra_routes": [
     { "url": "/api/info", "type": "API (POST)", "indexable": false, "notes": "Proxies to BACKEND_URL, blocked via robots.ts disallow /api/" },
     { "url": "/api/download", "type": "API (POST)", "indexable": false, "notes": "Same." },
