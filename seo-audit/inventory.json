@@ -298,12 +298,8 @@
     { "url": "/api/download", "type": "API (POST)", "indexable": false, "notes": "Same." },
     { "url": "/api/status/[jobId]", "type": "API (GET)", "indexable": false, "notes": "Same." },
     { "url": "/api/file/[jobId]", "type": "API (GET)", "indexable": false, "notes": "Same." },
-    { "url": "/sitemap.xml", "type": "sitemap", "indexable": false, "notes": "Covers all seoPages + featurePages + comparisonPages. Overlaps with the 3 split sitemaps below - see Phase 15 consolidation note." },
-    { "url": "/sitemap-pages.xml", "type": "sitemap", "indexable": false, "notes": "Redundant subset of sitemap.xml (home/youtube/instagram/facebook/tiktok/how-to)." },
-    { "url": "/sitemap-features.xml", "type": "sitemap", "indexable": false, "notes": "Redundant subset of sitemap.xml (feature pages)." },
-    { "url": "/sitemap-platforms.xml", "type": "sitemap", "indexable": false, "notes": "Redundant subset of sitemap.xml (subset of seoPages)." },
-    { "url": "/sitemap-blog.xml", "type": "sitemap", "indexable": false, "notes": "Empty urlset - no blog content exists yet. Confirms Phase 20 gap." },
-    { "url": "/robots.txt", "type": "robots", "indexable": false, "notes": "Clean, see diagnosis." },
+    { "url": "/sitemap.xml", "type": "sitemap", "indexable": false, "notes": "PHASE 15 DONE: consolidated single sitemap covering all 29 indexable URLs (6 core + 9 feature + 3 comparison + 11 trust/nav pages). The redundant sitemap-pages.xml/sitemap-features.xml/sitemap-platforms.xml/sitemap-blog.xml routes were deleted; robots.ts now declares only this one sitemap." },
+    { "url": "/robots.txt", "type": "robots", "indexable": false, "notes": "PHASE 16 DONE: single sitemap declaration, allow:/, disallow:/api/. Verified output via build." },
     { "url": "/manifest.webmanifest", "type": "PWA manifest", "indexable": false, "notes": "n/a to SEO." }
   ]
 }
