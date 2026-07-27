@@ -56,9 +56,9 @@ export default function Page() {
         ]}
         relatedLinks={[
           { href: "/copyright-dmca", label: "Copyright & DMCA Policy" },
+          { href: "/terms-of-service", label: "Terms of Service" },
           { href: "/contact", label: "Contact" },
           { href: "/how-to", label: "How Pullify Works" },
-          { href: "/", label: "Home" },
         ]}
       />
     </>

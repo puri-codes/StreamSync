@@ -187,10 +187,10 @@
       "page_type": "trust/E-E-A-T (new)",
       "primary_keyword": "about pullify",
       "primary_intent": "Establish who operates the site (Algora Labs) for trust/E-E-A-T.",
-      "word_count": 0,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Phase 12. Needs real company/contact facts from user before drafting - see seo-audit note in redirects.md / diagnosis Open item."
+      "word_count": 260,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Built via LegalPage.tsx. Deliberately avoids fabricated team bios/history not provided by the user - describes what the product does and its accuracy commitment instead."
     },
     {
       "url": "/contact",
@@ -207,30 +207,30 @@
       "page_type": "trust/legal (new)",
       "primary_keyword": "pullify privacy policy",
       "primary_intent": "Legal/trust.",
-      "word_count": 0,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Phase 12. Needs entity name/jurisdiction/data-handling facts."
+      "word_count": 340,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Built via LegalPage.tsx. Verified against codebase before writing: no analytics/tracking scripts found (grepped repo), no account system, only localStorage download_history - content grounded in actual behavior, not fabricated."
     },
     {
       "url": "/terms-of-service",
       "page_type": "trust/legal (new)",
       "primary_keyword": "pullify terms of service",
       "primary_intent": "Legal/trust.",
-      "word_count": 0,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Phase 12. Needs entity name/jurisdiction."
+      "word_count": 380,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Built via LegalPage.tsx. States Algora Labs operates without a specific claimed jurisdiction, per user decision, rather than fabricating one."
     },
     {
       "url": "/cookie-policy",
       "page_type": "trust/legal (new)",
       "primary_keyword": "pullify cookie policy",
       "primary_intent": "Legal/trust.",
-      "word_count": 0,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Phase 12. Should be scoped to what the site actually stores (localStorage download_history, no analytics cookies found yet in codebase - verify before writing)."
+      "word_count": 220,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Confirmed via repo grep before writing: no cookie-setting code anywhere. Page accurately states no tracking/ad cookies, only download_history in localStorage."
     },
     {
       "url": "/copyright-dmca",
@@ -247,30 +247,30 @@
       "page_type": "trust/E-E-A-T (new)",
       "primary_keyword": "pullify editorial policy",
       "primary_intent": "Trust: how content/guides on the site are written and kept accurate.",
-      "word_count": 0,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Phase 12."
+      "word_count": 260,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Built via LegalPage.tsx. States guides are written to match verified product behavior and invites corrections."
     },
     {
       "url": "/security-policy",
       "page_type": "trust/E-E-A-T (new)",
       "primary_keyword": "pullify security policy",
       "primary_intent": "Trust: how the proxy/backend handles requests, vuln reporting.",
-      "word_count": 0,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Phase 12. Can be grounded in real facts from CLAUDE.md (proxy architecture, CSP headers in middleware.ts) without needing user input."
+      "word_count": 260,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Grounded in real facts (proxy architecture, CSP/security headers actually set in middleware.ts) rather than fabricated infra claims."
     },
     {
       "url": "/support",
       "page_type": "trust/E-E-A-T (new)",
       "primary_keyword": "pullify help center / support",
       "primary_intent": "Troubleshooting hub for when a download fails, distinct from /how-to's first-time workflow explanation.",
-      "word_count": 0,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Phase 12/20 gap-fill."
+      "word_count": 400,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Built via LegalPage.tsx. Consolidates cross-platform failure modes grounded in actual DownloadManager.tsx behavior (retry button, queue widget) rather than generic advice."
     },
     {
       "url": "/responsible-use",
@@ -287,10 +287,10 @@
       "page_type": "navigation (new)",
       "primary_keyword": null,
       "primary_intent": "Human-readable HTML sitemap for crawl-depth reduction (Phase 13).",
-      "word_count": 0,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Named /sitemap-html to avoid clashing with the existing /sitemap.xml XML route."
+      "word_count": 60,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Named /sitemap-html to avoid clashing with the existing /sitemap.xml XML route. Lists every indexable page grouped by type - confirmed via automated crawl that it eliminates all orphan pages (0 orphans across 29 routes) and every internal link on the site resolves (0 broken links)."
     }
   ],
   "infra_routes": [

@@ -68,12 +68,28 @@ function Footer() {
           </Link>
         </div>
 
-        <div className="flex flex-wrap gap-3 text-xs text-[#5f6b7a] pt-4 border-t border-[#e5e9df]">
-          <Link href="/responsible-use" className="hover:text-[#0f172a] transition-colors">Responsible Use Policy</Link>
+        <div className="flex flex-wrap gap-x-3 gap-y-2 text-xs text-[#5f6b7a] pt-4 border-t border-[#e5e9df]">
+          <Link href="/about" className="hover:text-[#0f172a] transition-colors">About</Link>
           <span aria-hidden="true">·</span>
-          <Link href="/copyright-dmca" className="hover:text-[#0f172a] transition-colors">Copyright & DMCA</Link>
+          <Link href="/support" className="hover:text-[#0f172a] transition-colors">Support</Link>
           <span aria-hidden="true">·</span>
           <Link href="/contact" className="hover:text-[#0f172a] transition-colors">Contact</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/responsible-use" className="hover:text-[#0f172a] transition-colors">Responsible Use Policy</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/copyright-dmca" className="hover:text-[#0f172a] transition-colors">Copyright &amp; DMCA</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/privacy-policy" className="hover:text-[#0f172a] transition-colors">Privacy Policy</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/terms-of-service" className="hover:text-[#0f172a] transition-colors">Terms of Service</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/cookie-policy" className="hover:text-[#0f172a] transition-colors">Cookie Policy</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/editorial-policy" className="hover:text-[#0f172a] transition-colors">Editorial Policy</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/security-policy" className="hover:text-[#0f172a] transition-colors">Security Policy</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/sitemap-html" className="hover:text-[#0f172a] transition-colors">Sitemap</Link>
         </div>
 
         <p className="text-xs text-[#5f6b7a]">
