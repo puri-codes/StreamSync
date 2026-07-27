@@ -29,5 +29,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...basePages, ...featureEntries, ...comparisonEntries];
+  const trustSlugs = [
+    "responsible-use",
+    "copyright-dmca",
+    "contact",
+    "about",
+    "privacy-policy",
+    "terms-of-service",
+    "cookie-policy",
+    "editorial-policy",
+    "security-policy",
+    "support",
+    "sitemap-html",
+  ];
+  const trustEntries = trustSlugs.map((slug) => ({
+    url: joinSiteUrl(`/${slug}`),
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.4,
+  }));
+
+  return [...basePages, ...featureEntries, ...comparisonEntries, ...trustEntries];
 }

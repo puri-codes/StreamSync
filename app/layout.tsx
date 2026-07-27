@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import SiteShell from "@/components/SiteShell";
-import { siteDescription, siteName, siteUrl } from "@/lib/seo";
+import { organizationJsonLd, siteDescription, siteName, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -52,6 +52,10 @@ export default function RootLayout({
         className="font-sans antialiased text-gray-900 bg-gray-50/50 transition-colors duration-200"
         suppressHydrationWarning
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+        />
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

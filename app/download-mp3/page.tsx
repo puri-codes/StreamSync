@@ -10,6 +10,7 @@ export default function Page() {
   return (
       <LandingPage
       {...page}
+      canonicalPath={`/${page.slug}`}
       relatedLinks={getFeatureRelatedLinks(page.slug)}
       />
   );

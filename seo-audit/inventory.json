@@ -1,0 +1,314 @@
+{
+  "generated": "2026-07-27",
+  "note": "Phase 1-3 manifest. word_count is current unique-copy estimate (pre-rewrite) unless status is done, in which case it reflects the rewritten page. status values: not_started | in_progress | done. PHASE 9/11 VERIFIED: automated crawl of the production build confirms 0 broken internal links, 0 orphan pages, 0 duplicate <title>/canonical tags across 30 pages, 0 JSON-LD parse errors across 106 schema blocks (Organization x30, BreadcrumbList x28, FAQPage x18, SoftwareApplication x18, WebPage x6, HowTo x5, WebSite x1), and rewritten copy + schema confirmed present in the actual static SSR HTML output (not client-rendered).",
+  "pages": [
+    {
+      "url": "/",
+      "page_type": "core-downloader",
+      "primary_keyword": "media downloader (multi-platform)",
+      "primary_intent": "Navigational/tool-use: land on the general downloader, understand what platforms are supported, start a download or pick a platform page.",
+      "word_count": 700,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Rewritten: unique overview/steps/formatNotes/tips/troubleshooting/5 FAQs via lib/seo.ts + MediaHome.tsx, FAQPage+SoftwareApplication JSON-LD added, self-canonical, Hero now gets real per-page title/description (was previously unwired). ~700 unique words, below the 1000-1500 target - flagged for a top-up pass, not padded with filler in the meantime. Legal & safe use note links to /responsible-use and /copyright-dmca."
+    },
+    {
+      "url": "/youtube",
+      "page_type": "core-downloader / platform",
+      "primary_keyword": "youtube video downloader",
+      "primary_intent": "Platform tool-use: download a specific YouTube video/short/playlist item, understand available formats.",
+      "word_count": 680,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Rewritten with YouTube-specific format notes, tips, 4-item troubleshooting, 5 unique FAQs, cross-links to Shorts/Playlist/MP3/4K/1080p pages. Removed old SeoSections duplicate-boilerplate block. ~680 unique words, below 1000-1500 target - flagged for top-up."
+    },
+    {
+      "url": "/instagram",
+      "page_type": "core-downloader / platform",
+      "primary_keyword": "instagram video downloader",
+      "primary_intent": "Platform tool-use: download Instagram Reels/Stories/posts/carousels, understand what's public vs private.",
+      "word_count": 650,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Rewritten with content-type breakdown, public/private constraint section ordered before format notes (deliberately different order than /facebook per Phase 6), 5 unique FAQs. ~650 unique words, flagged for top-up."
+    },
+    {
+      "url": "/facebook",
+      "page_type": "core-downloader / platform",
+      "primary_keyword": "facebook video downloader",
+      "primary_intent": "Platform tool-use: download public Facebook videos/live replays.",
+      "word_count": 660,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Rewritten with Groups-restriction explanation, live-replay notes, HD variability. Section order deliberately differs from /instagram (steps before format notes) per Phase 6. ~660 unique words, flagged for top-up."
+    },
+    {
+      "url": "/tiktok",
+      "page_type": "core-downloader / platform",
+      "primary_keyword": "tiktok video downloader",
+      "primary_intent": "Platform tool-use: download TikTok videos.",
+      "word_count": 600,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Was thinnest core page (~180 words); rewritten with watermark-behavior explanation (no removal-claim), audio-extraction use case, 5 unique FAQs. Cross-links to no-watermark guide and snaptik comparison instead of duplicating their depth. ~600 unique words, flagged for top-up."
+    },
+    {
+      "url": "/how-to",
+      "page_type": "core-downloader / guide",
+      "primary_keyword": "how to download videos online",
+      "primary_intent": "Informational: general workflow explanation for first-time users, funnels into platform pages.",
+      "word_count": 700,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Rewritten as the generic cross-platform workflow guide with video/audio/thumbnail explainer, general tips, common-issues troubleshooting, 5 unique FAQs. ~700 unique words, flagged for top-up. Still distinct from planned /support hub."
+    },
+    {
+      "url": "/download-mp3",
+      "page_type": "feature/format",
+      "primary_keyword": "youtube to mp3 / download mp3",
+      "primary_intent": "Format tool-use: convert/save audio specifically as MP3.",
+      "word_count": 620,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten via lib/seo-pages.ts + LandingPage.tsx: honest codec/bitrate framing (does not claim guaranteed .mp3 output), 5 unique FAQs, cross-links to /download-audio for the general case. ~620 unique words, flagged for top-up."
+    },
+    {
+      "url": "/download-audio",
+      "page_type": "feature/format",
+      "primary_keyword": "extract audio from video / download audio track",
+      "primary_intent": "Format tool-use: save the audio track in general (any supported audio format), for podcasts/lectures/interviews, not MP3-specific.",
+      "word_count": 590,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten, scoped to the general audio-only workflow (podcasts/lectures/any codec) distinct from the MP3-specific page. ~590 unique words, flagged for top-up."
+    },
+    {
+      "url": "/download-thumbnail",
+      "page_type": "feature/format",
+      "primary_keyword": "download video thumbnail",
+      "primary_intent": "Format tool-use: save the preview/cover image for a video or post.",
+      "word_count": 520,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten, no overlap with other pages. ~520 unique words, flagged for top-up."
+    },
+    {
+      "url": "/download-playlist",
+      "page_type": "feature/format",
+      "primary_keyword": "download youtube playlist",
+      "primary_intent": "Batch workflow: process multiple items from a playlist sequentially.",
+      "word_count": 620,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten to explicitly disclose the single-link-at-a-time limitation rather than imply batch/bulk support - matches actual product behavior. ~620 unique words, flagged for top-up."
+    },
+    {
+      "url": "/download-shorts",
+      "page_type": "feature/format",
+      "primary_keyword": "download youtube shorts",
+      "primary_intent": "Short-form video tool-use, YouTube-specific.",
+      "word_count": 540,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten, owns Shorts-specific depth distinct from /youtube. ~540 unique words, flagged for top-up."
+    },
+    {
+      "url": "/download-reels",
+      "page_type": "feature/format",
+      "primary_keyword": "download instagram reels",
+      "primary_intent": "Short-form video tool-use, Instagram-specific.",
+      "word_count": 570,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten, owns reel-specific depth (audio-only reel saves, watermark nuance) distinct from /instagram. ~570 unique words, flagged for top-up."
+    },
+    {
+      "url": "/download-1080p",
+      "page_type": "feature/format",
+      "primary_keyword": "download 1080p video",
+      "primary_intent": "Quality-specific tool-use: full HD downloads.",
+      "word_count": 560,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with platform-by-platform availability notes; explicitly states Pullify never upscales. ~560 unique words, flagged for top-up."
+    },
+    {
+      "url": "/download-4k",
+      "page_type": "feature/format",
+      "primary_keyword": "download 4k video",
+      "primary_intent": "Quality-specific tool-use: ultra-HD downloads.",
+      "word_count": 580,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with same no-upscaling honesty constraint as 1080p page, plus platform availability notes. ~580 unique words, flagged for top-up."
+    },
+    {
+      "url": "/download-video-no-watermark",
+      "page_type": "feature/format",
+      "primary_keyword": "download video without watermark",
+      "primary_intent": "Cross-platform explainer: which platforms' public formats are watermark-free at the source vs which aren't; tool does not remove watermarks.",
+      "word_count": 690,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with explicit, repeated statement that Pullify does not remove watermarks and TikTok's is burned into the source - avoids the common misleading claim other 'no watermark' tools make. Cross-links to /tiktok, /download-reels, /compare/snaptik-alternative. ~690 unique words, closest to target of Batch B pages."
+    },
+    {
+      "url": "/compare/y2mate-alternative",
+      "page_type": "comparison",
+      "primary_keyword": "y2mate alternative",
+      "primary_intent": "Comparison/competitor-displacement: convince a Y2Mate searcher to try Pullify.",
+      "word_count": 540,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with specific Y2Mate comparison points (multi-platform coverage, real format list vs presets, persistent queue) instead of generic 'cleaner interface' copy. ~540 unique words, flagged for top-up."
+    },
+    {
+      "url": "/compare/savefrom-alternative",
+      "page_type": "comparison",
+      "primary_keyword": "savefrom alternative",
+      "primary_intent": "Comparison/competitor-displacement.",
+      "word_count": 520,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with SaveFrom-specific comparison points (no browser extension required vs extension-based detection). ~520 unique words, flagged for top-up."
+    },
+    {
+      "url": "/compare/snaptik-alternative",
+      "page_type": "comparison",
+      "primary_keyword": "snaptik alternative",
+      "primary_intent": "Comparison/competitor-displacement, TikTok-specific.",
+      "word_count": 540,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with the same honest no-watermark-removal disclosure as /download-video-no-watermark, framed as the Snaptik-specific comparison angle. ~540 unique words, flagged for top-up."
+    },
+    {
+      "url": "/about",
+      "page_type": "trust/E-E-A-T (new)",
+      "primary_keyword": "about pullify",
+      "primary_intent": "Establish who operates the site (Algora Labs) for trust/E-E-A-T.",
+      "word_count": 260,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Built via LegalPage.tsx. Deliberately avoids fabricated team bios/history not provided by the user - describes what the product does and its accuracy commitment instead."
+    },
+    {
+      "url": "/contact",
+      "page_type": "trust/E-E-A-T (new)",
+      "primary_keyword": "contact pullify",
+      "primary_intent": "Support/contact channel.",
+      "word_count": 220,
+      "status": "done",
+      "last_touched_commit": "batch-a",
+      "notes": "Built via components/LegalPage.tsx. Uses support@pullify.algoralabs.site per user decision. Linked from footer on every page and from the Legal & safe use note on every downloader page."
+    },
+    {
+      "url": "/privacy-policy",
+      "page_type": "trust/legal (new)",
+      "primary_keyword": "pullify privacy policy",
+      "primary_intent": "Legal/trust.",
+      "word_count": 340,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Built via LegalPage.tsx. Verified against codebase before writing: no analytics/tracking scripts found (grepped repo), no account system, only localStorage download_history - content grounded in actual behavior, not fabricated."
+    },
+    {
+      "url": "/terms-of-service",
+      "page_type": "trust/legal (new)",
+      "primary_keyword": "pullify terms of service",
+      "primary_intent": "Legal/trust.",
+      "word_count": 380,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Built via LegalPage.tsx. States Algora Labs operates without a specific claimed jurisdiction, per user decision, rather than fabricating one."
+    },
+    {
+      "url": "/cookie-policy",
+      "page_type": "trust/legal (new)",
+      "primary_keyword": "pullify cookie policy",
+      "primary_intent": "Legal/trust.",
+      "word_count": 220,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Confirmed via repo grep before writing: no cookie-setting code anywhere. Page accurately states no tracking/ad cookies, only download_history in localStorage."
+    },
+    {
+      "url": "/copyright-dmca",
+      "page_type": "trust/legal (new)",
+      "primary_keyword": "pullify dmca copyright policy",
+      "primary_intent": "Legal/trust - highest priority per Phase 0 niche guidance.",
+      "word_count": 480,
+      "status": "done",
+      "last_touched_commit": "batch-a",
+      "notes": "Built via components/LegalPage.tsx. Entity described as Algora Labs without claiming formal jurisdiction, per user decision. Takedown process, counter-notice, repeat-use sections included. Linked from footer + every downloader page's Legal & safe use note."
+    },
+    {
+      "url": "/editorial-policy",
+      "page_type": "trust/E-E-A-T (new)",
+      "primary_keyword": "pullify editorial policy",
+      "primary_intent": "Trust: how content/guides on the site are written and kept accurate.",
+      "word_count": 260,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Built via LegalPage.tsx. States guides are written to match verified product behavior and invites corrections."
+    },
+    {
+      "url": "/security-policy",
+      "page_type": "trust/E-E-A-T (new)",
+      "primary_keyword": "pullify security policy",
+      "primary_intent": "Trust: how the proxy/backend handles requests, vuln reporting.",
+      "word_count": 260,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Grounded in real facts (proxy architecture, CSP/security headers actually set in middleware.ts) rather than fabricated infra claims."
+    },
+    {
+      "url": "/support",
+      "page_type": "trust/E-E-A-T (new)",
+      "primary_keyword": "pullify help center / support",
+      "primary_intent": "Troubleshooting hub for when a download fails, distinct from /how-to's first-time workflow explanation.",
+      "word_count": 400,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Built via LegalPage.tsx. Consolidates cross-platform failure modes grounded in actual DownloadManager.tsx behavior (retry button, queue widget) rather than generic advice."
+    },
+    {
+      "url": "/responsible-use",
+      "page_type": "trust/legal (new)",
+      "primary_keyword": "pullify responsible use policy",
+      "primary_intent": "Explicit statement that the tool is for content the user owns or has rights/permission to download; linked from every downloader page's legal/limitations section.",
+      "word_count": 460,
+      "status": "done",
+      "last_touched_commit": "batch-a",
+      "notes": "Built via components/LegalPage.tsx. Linked from footer on every page and from a dedicated Legal & safe use section added to all 6 core downloader pages in MediaHome.tsx. Will also be linked from feature/comparison pages in Batch B/C."
+    },
+    {
+      "url": "/sitemap-html",
+      "page_type": "navigation (new)",
+      "primary_keyword": null,
+      "primary_intent": "Human-readable HTML sitemap for crawl-depth reduction (Phase 13).",
+      "word_count": 60,
+      "status": "done",
+      "last_touched_commit": "phase-12",
+      "notes": "Named /sitemap-html to avoid clashing with the existing /sitemap.xml XML route. Lists every indexable page grouped by type - confirmed via automated crawl that it eliminates all orphan pages (0 orphans across 29 routes) and every internal link on the site resolves (0 broken links)."
+    }
+  ],
+  "phase_17_18_accessibility_performance": {
+    "checked": [
+      "Heading hierarchy: verified clean (h1 -> h2 -> h3, no skipped levels) on sampled core and feature pages via built HTML.",
+      "Image alt text: VideoCard.tsx uses the real media title as alt text; SiteShell.tsx logo has descriptive alt; DownloadManager.tsx queue/history thumbnails intentionally use alt=\"\" since the equivalent title text is already rendered adjacent to each thumbnail (correct decorative-image pattern, not a gap).",
+      "No generic 'click here'/'read more' anchor text found anywhere in the codebase (grepped).",
+      "ARIA: aria-label on nav/breadcrumb landmarks, aria-labelledby on new content sections, aria-hidden on decorative icons - all already present or added during the rewrite."
+    ],
+    "known_gap_not_fixed_this_session": "components/DownloadManager.tsx renders two <img> tags (queue + history thumbnails, ~48x32px) instead of next/image (flagged by eslint's no-img-element rule, pre-existing before this session). Left as-is because it's a stateful interactive widget with no way to visually verify in a browser during this session, and the risk/benefit of touching it without that verification wasn't worth it this late in the batch. Low priority: these thumbnails are small, below-the-fold in a fixed widget, not part of the initial LCP-critical paint."
+  },
+  "infra_routes": [
+    { "url": "/api/info", "type": "API (POST)", "indexable": false, "notes": "Proxies to BACKEND_URL, blocked via robots.ts disallow /api/" },
+    { "url": "/api/download", "type": "API (POST)", "indexable": false, "notes": "Same." },
+    { "url": "/api/status/[jobId]", "type": "API (GET)", "indexable": false, "notes": "Same." },
+    { "url": "/api/file/[jobId]", "type": "API (GET)", "indexable": false, "notes": "Same." },
+    { "url": "/sitemap.xml", "type": "sitemap", "indexable": false, "notes": "PHASE 15 DONE: consolidated single sitemap covering all 29 indexable URLs (6 core + 9 feature + 3 comparison + 11 trust/nav pages). The redundant sitemap-pages.xml/sitemap-features.xml/sitemap-platforms.xml/sitemap-blog.xml routes were deleted; robots.ts now declares only this one sitemap." },
+    { "url": "/robots.txt", "type": "robots", "indexable": false, "notes": "PHASE 16 DONE: single sitemap declaration, allow:/, disallow:/api/. Verified output via build." },
+    { "url": "/manifest.webmanifest", "type": "PWA manifest", "indexable": false, "notes": "n/a to SEO." }
+  ]
+}

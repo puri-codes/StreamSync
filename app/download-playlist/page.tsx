@@ -7,5 +7,5 @@ const page = getFeaturePage("download-playlist");
 export const metadata = featureMetadata(page.title, page.description, page.slug);
 
 export default function Page() {
-  return <LandingPage {...page} relatedLinks={getFeatureRelatedLinks(page.slug)} />;
+  return <LandingPage {...page} canonicalPath={`/${page.slug}`} relatedLinks={getFeatureRelatedLinks(page.slug)} />;
 }
