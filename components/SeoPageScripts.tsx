@@ -1,8 +1,8 @@
 import React from "react";
-import { breadcrumbJsonLd, howToJsonLd, webpageJsonLd, SeoPageKey, siteUrl, siteName } from "@/lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, howToJsonLd, seoPages, softwareApplicationJsonLd, webpageJsonLd, SeoPageKey, siteUrl, siteName } from "@/lib/seo";
 
 export default function SeoPageScripts({ page }: { page: SeoPageKey }) {
-  const scripts = [webpageJsonLd(page), breadcrumbJsonLd(page)];
+  const scripts = [webpageJsonLd(page), breadcrumbJsonLd(page), softwareApplicationJsonLd(page), faqJsonLd(seoPages[page].faqs)];
 
   if (page !== "home") {
     scripts.push(howToJsonLd(page));

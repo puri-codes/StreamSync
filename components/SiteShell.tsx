@@ -68,8 +68,17 @@ function Footer() {
           </Link>
         </div>
 
+        <div className="flex flex-wrap gap-3 text-xs text-[#5f6b7a] pt-4 border-t border-[#e5e9df]">
+          <Link href="/responsible-use" className="hover:text-[#0f172a] transition-colors">Responsible Use Policy</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/copyright-dmca" className="hover:text-[#0f172a] transition-colors">Copyright & DMCA</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/contact" className="hover:text-[#0f172a] transition-colors">Contact</Link>
+        </div>
+
         <p className="text-xs text-[#5f6b7a]">
-          For personal and educational use. All media is fetched directly from social platforms.
+          Pullify is operated by Algora Labs. For personal and educational use. All media is fetched directly from
+          social platforms — see our Responsible Use Policy for what that means.
         </p>
       </div>
     </footer>

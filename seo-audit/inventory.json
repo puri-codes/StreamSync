@@ -1,0 +1,309 @@
+{
+  "generated": "2026-07-27",
+  "note": "Phase 1-3 manifest. word_count is current unique-copy estimate (pre-rewrite) unless status is done, in which case it reflects the rewritten page. status values: not_started | in_progress | done.",
+  "pages": [
+    {
+      "url": "/",
+      "page_type": "core-downloader",
+      "primary_keyword": "media downloader (multi-platform)",
+      "primary_intent": "Navigational/tool-use: land on the general downloader, understand what platforms are supported, start a download or pick a platform page.",
+      "word_count": 700,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Rewritten: unique overview/steps/formatNotes/tips/troubleshooting/5 FAQs via lib/seo.ts + MediaHome.tsx, FAQPage+SoftwareApplication JSON-LD added, self-canonical, Hero now gets real per-page title/description (was previously unwired). ~700 unique words, below the 1000-1500 target - flagged for a top-up pass, not padded with filler in the meantime. Legal & safe use note links to /responsible-use and /copyright-dmca."
+    },
+    {
+      "url": "/youtube",
+      "page_type": "core-downloader / platform",
+      "primary_keyword": "youtube video downloader",
+      "primary_intent": "Platform tool-use: download a specific YouTube video/short/playlist item, understand available formats.",
+      "word_count": 680,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Rewritten with YouTube-specific format notes, tips, 4-item troubleshooting, 5 unique FAQs, cross-links to Shorts/Playlist/MP3/4K/1080p pages. Removed old SeoSections duplicate-boilerplate block. ~680 unique words, below 1000-1500 target - flagged for top-up."
+    },
+    {
+      "url": "/instagram",
+      "page_type": "core-downloader / platform",
+      "primary_keyword": "instagram video downloader",
+      "primary_intent": "Platform tool-use: download Instagram Reels/Stories/posts/carousels, understand what's public vs private.",
+      "word_count": 650,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Rewritten with content-type breakdown, public/private constraint section ordered before format notes (deliberately different order than /facebook per Phase 6), 5 unique FAQs. ~650 unique words, flagged for top-up."
+    },
+    {
+      "url": "/facebook",
+      "page_type": "core-downloader / platform",
+      "primary_keyword": "facebook video downloader",
+      "primary_intent": "Platform tool-use: download public Facebook videos/live replays.",
+      "word_count": 660,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Rewritten with Groups-restriction explanation, live-replay notes, HD variability. Section order deliberately differs from /instagram (steps before format notes) per Phase 6. ~660 unique words, flagged for top-up."
+    },
+    {
+      "url": "/tiktok",
+      "page_type": "core-downloader / platform",
+      "primary_keyword": "tiktok video downloader",
+      "primary_intent": "Platform tool-use: download TikTok videos.",
+      "word_count": 600,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Was thinnest core page (~180 words); rewritten with watermark-behavior explanation (no removal-claim), audio-extraction use case, 5 unique FAQs. Cross-links to no-watermark guide and snaptik comparison instead of duplicating their depth. ~600 unique words, flagged for top-up."
+    },
+    {
+      "url": "/how-to",
+      "page_type": "core-downloader / guide",
+      "primary_keyword": "how to download videos online",
+      "primary_intent": "Informational: general workflow explanation for first-time users, funnels into platform pages.",
+      "word_count": 700,
+      "status": "in_progress",
+      "last_touched_commit": "batch-a",
+      "notes": "Rewritten as the generic cross-platform workflow guide with video/audio/thumbnail explainer, general tips, common-issues troubleshooting, 5 unique FAQs. ~700 unique words, flagged for top-up. Still distinct from planned /support hub."
+    },
+    {
+      "url": "/download-mp3",
+      "page_type": "feature/format",
+      "primary_keyword": "youtube to mp3 / download mp3",
+      "primary_intent": "Format tool-use: convert/save audio specifically as MP3.",
+      "word_count": 210,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "CANNIBALIZATION RISK vs /download-audio - resolved by re-scoping (see redirects.md): this page owns the MP3-specific/high-volume 'to mp3' search term and codec/bitrate specifics."
+    },
+    {
+      "url": "/download-audio",
+      "page_type": "feature/format",
+      "primary_keyword": "extract audio from video / download audio track",
+      "primary_intent": "Format tool-use: save the audio track in general (any supported audio format), for podcasts/lectures/interviews, not MP3-specific.",
+      "word_count": 210,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Re-scoped per redirects.md to avoid overlap with /download-mp3. Owns the broader 'audio-only' workflow and use cases."
+    },
+    {
+      "url": "/download-thumbnail",
+      "page_type": "feature/format",
+      "primary_keyword": "download video thumbnail",
+      "primary_intent": "Format tool-use: save the preview/cover image for a video or post.",
+      "word_count": 200,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "No overlap with other pages."
+    },
+    {
+      "url": "/download-playlist",
+      "page_type": "feature/format",
+      "primary_keyword": "download youtube playlist",
+      "primary_intent": "Batch workflow: process multiple items from a playlist sequentially.",
+      "word_count": 200,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "No overlap; note product only supports single-link fetches today, playlist content must not overstate batch automation (Phase 4a - no fabricated capability claims)."
+    },
+    {
+      "url": "/download-shorts",
+      "page_type": "feature/format",
+      "primary_keyword": "download youtube shorts",
+      "primary_intent": "Short-form video tool-use, YouTube-specific.",
+      "word_count": 210,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Sub-intent of /youtube; owns the Shorts-specific depth (aspect ratio, short-form quality notes)."
+    },
+    {
+      "url": "/download-reels",
+      "page_type": "feature/format",
+      "primary_keyword": "download instagram reels",
+      "primary_intent": "Short-form video tool-use, Instagram-specific.",
+      "word_count": 210,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Sub-intent of /instagram; owns reel-specific depth (audio-only reel saves, no-watermark nuance for reels specifically)."
+    },
+    {
+      "url": "/download-1080p",
+      "page_type": "feature/format",
+      "primary_keyword": "download 1080p video",
+      "primary_intent": "Quality-specific tool-use: full HD downloads.",
+      "word_count": 200,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Distinct from /download-4k by resolution tier; must accurately state availability depends on source (no fabricated guarantee)."
+    },
+    {
+      "url": "/download-4k",
+      "page_type": "feature/format",
+      "primary_keyword": "download 4k video",
+      "primary_intent": "Quality-specific tool-use: ultra-HD downloads.",
+      "word_count": 200,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Same accuracy constraint as 1080p page."
+    },
+    {
+      "url": "/download-video-no-watermark",
+      "page_type": "feature/format",
+      "primary_keyword": "download video without watermark",
+      "primary_intent": "Cross-platform explainer: which platforms' public formats are watermark-free at the source vs which aren't; tool does not remove watermarks.",
+      "word_count": 220,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Must explicitly NOT claim watermark removal (Phase 4a legal/factual accuracy) - only that it exposes whatever the source provides. Cross-links to /tiktok and /download-reels rather than duplicating their depth."
+    },
+    {
+      "url": "/compare/y2mate-alternative",
+      "page_type": "comparison",
+      "primary_keyword": "y2mate alternative",
+      "primary_intent": "Comparison/competitor-displacement: convince a Y2Mate searcher to try Pullify.",
+      "word_count": 250,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "No overlap with other compare pages once each names its actual competitor's distinguishing traits instead of generic 'cleaner interface' copy."
+    },
+    {
+      "url": "/compare/savefrom-alternative",
+      "page_type": "comparison",
+      "primary_keyword": "savefrom alternative",
+      "primary_intent": "Comparison/competitor-displacement.",
+      "word_count": 250,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Same as above."
+    },
+    {
+      "url": "/compare/snaptik-alternative",
+      "page_type": "comparison",
+      "primary_keyword": "snaptik alternative",
+      "primary_intent": "Comparison/competitor-displacement, TikTok-specific.",
+      "word_count": 250,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Overlaps conceptually with /tiktok and /download-video-no-watermark - owns the 'vs a specific competitor' angle only, not general TikTok how-to content."
+    },
+    {
+      "url": "/about",
+      "page_type": "trust/E-E-A-T (new)",
+      "primary_keyword": "about pullify",
+      "primary_intent": "Establish who operates the site (Algora Labs) for trust/E-E-A-T.",
+      "word_count": 0,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Phase 12. Needs real company/contact facts from user before drafting - see seo-audit note in redirects.md / diagnosis Open item."
+    },
+    {
+      "url": "/contact",
+      "page_type": "trust/E-E-A-T (new)",
+      "primary_keyword": "contact pullify",
+      "primary_intent": "Support/contact channel.",
+      "word_count": 220,
+      "status": "done",
+      "last_touched_commit": "batch-a",
+      "notes": "Built via components/LegalPage.tsx. Uses support@pullify.algoralabs.site per user decision. Linked from footer on every page and from the Legal & safe use note on every downloader page."
+    },
+    {
+      "url": "/privacy-policy",
+      "page_type": "trust/legal (new)",
+      "primary_keyword": "pullify privacy policy",
+      "primary_intent": "Legal/trust.",
+      "word_count": 0,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Phase 12. Needs entity name/jurisdiction/data-handling facts."
+    },
+    {
+      "url": "/terms-of-service",
+      "page_type": "trust/legal (new)",
+      "primary_keyword": "pullify terms of service",
+      "primary_intent": "Legal/trust.",
+      "word_count": 0,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Phase 12. Needs entity name/jurisdiction."
+    },
+    {
+      "url": "/cookie-policy",
+      "page_type": "trust/legal (new)",
+      "primary_keyword": "pullify cookie policy",
+      "primary_intent": "Legal/trust.",
+      "word_count": 0,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Phase 12. Should be scoped to what the site actually stores (localStorage download_history, no analytics cookies found yet in codebase - verify before writing)."
+    },
+    {
+      "url": "/copyright-dmca",
+      "page_type": "trust/legal (new)",
+      "primary_keyword": "pullify dmca copyright policy",
+      "primary_intent": "Legal/trust - highest priority per Phase 0 niche guidance.",
+      "word_count": 480,
+      "status": "done",
+      "last_touched_commit": "batch-a",
+      "notes": "Built via components/LegalPage.tsx. Entity described as Algora Labs without claiming formal jurisdiction, per user decision. Takedown process, counter-notice, repeat-use sections included. Linked from footer + every downloader page's Legal & safe use note."
+    },
+    {
+      "url": "/editorial-policy",
+      "page_type": "trust/E-E-A-T (new)",
+      "primary_keyword": "pullify editorial policy",
+      "primary_intent": "Trust: how content/guides on the site are written and kept accurate.",
+      "word_count": 0,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Phase 12."
+    },
+    {
+      "url": "/security-policy",
+      "page_type": "trust/E-E-A-T (new)",
+      "primary_keyword": "pullify security policy",
+      "primary_intent": "Trust: how the proxy/backend handles requests, vuln reporting.",
+      "word_count": 0,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Phase 12. Can be grounded in real facts from CLAUDE.md (proxy architecture, CSP headers in middleware.ts) without needing user input."
+    },
+    {
+      "url": "/support",
+      "page_type": "trust/E-E-A-T (new)",
+      "primary_keyword": "pullify help center / support",
+      "primary_intent": "Troubleshooting hub for when a download fails, distinct from /how-to's first-time workflow explanation.",
+      "word_count": 0,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Phase 12/20 gap-fill."
+    },
+    {
+      "url": "/responsible-use",
+      "page_type": "trust/legal (new)",
+      "primary_keyword": "pullify responsible use policy",
+      "primary_intent": "Explicit statement that the tool is for content the user owns or has rights/permission to download; linked from every downloader page's legal/limitations section.",
+      "word_count": 460,
+      "status": "done",
+      "last_touched_commit": "batch-a",
+      "notes": "Built via components/LegalPage.tsx. Linked from footer on every page and from a dedicated Legal & safe use section added to all 6 core downloader pages in MediaHome.tsx. Will also be linked from feature/comparison pages in Batch B/C."
+    },
+    {
+      "url": "/sitemap-html",
+      "page_type": "navigation (new)",
+      "primary_keyword": null,
+      "primary_intent": "Human-readable HTML sitemap for crawl-depth reduction (Phase 13).",
+      "word_count": 0,
+      "status": "not_started",
+      "last_touched_commit": null,
+      "notes": "Named /sitemap-html to avoid clashing with the existing /sitemap.xml XML route."
+    }
+  ],
+  "infra_routes": [
+    { "url": "/api/info", "type": "API (POST)", "indexable": false, "notes": "Proxies to BACKEND_URL, blocked via robots.ts disallow /api/" },
+    { "url": "/api/download", "type": "API (POST)", "indexable": false, "notes": "Same." },
+    { "url": "/api/status/[jobId]", "type": "API (GET)", "indexable": false, "notes": "Same." },
+    { "url": "/api/file/[jobId]", "type": "API (GET)", "indexable": false, "notes": "Same." },
+    { "url": "/sitemap.xml", "type": "sitemap", "indexable": false, "notes": "Covers all seoPages + featurePages + comparisonPages. Overlaps with the 3 split sitemaps below - see Phase 15 consolidation note." },
+    { "url": "/sitemap-pages.xml", "type": "sitemap", "indexable": false, "notes": "Redundant subset of sitemap.xml (home/youtube/instagram/facebook/tiktok/how-to)." },
+    { "url": "/sitemap-features.xml", "type": "sitemap", "indexable": false, "notes": "Redundant subset of sitemap.xml (feature pages)." },
+    { "url": "/sitemap-platforms.xml", "type": "sitemap", "indexable": false, "notes": "Redundant subset of sitemap.xml (subset of seoPages)." },
+    { "url": "/sitemap-blog.xml", "type": "sitemap", "indexable": false, "notes": "Empty urlset - no blog content exists yet. Confirms Phase 20 gap." },
+    { "url": "/robots.txt", "type": "robots", "indexable": false, "notes": "Clean, see diagnosis." },
+    { "url": "/manifest.webmanifest", "type": "PWA manifest", "indexable": false, "notes": "n/a to SEO." }
+  ]
+}
