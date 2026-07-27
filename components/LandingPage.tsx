@@ -13,21 +13,30 @@ import { getVideoInfo } from "@/services/downloader";
 import { MediaInfo, Format } from "@/types";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
-import { AudioLines, ArrowDownToLine, ExternalLink, Film, GalleryVertical, Image as ImageIcon, ListVideo, Music2, Waves, EyeOff } from "lucide-react";
+import { AudioLines, ArrowDownToLine, ExternalLink, Film, GalleryVertical, Image as ImageIcon, ListVideo, Music2, ShieldCheck, Waves, EyeOff } from "lucide-react";
 import { faqJsonLd } from "@/lib/seo";
+import type { SectionId } from "@/lib/seo-pages";
 
 type LandingPageProps = {
   title: string;
   description: string;
   h1: string;
+  directAnswer: string;
   intro: string;
   body: string[];
   iconKey: "music" | "image" | "list" | "gallery" | "film" | "waves" | "arrow" | "audio" | "eye";
+  benefitsHeading?: string;
   benefits?: string[];
-  steps?: string[];
+  comparisonHeading?: string;
   comparisonPoints?: string[];
+  steps?: string[];
+  formatNotesHeading?: string;
+  formatNotes?: { title: string; text: string }[];
+  tips: string[];
+  troubleshooting: string[];
   faqs: { question: string; answer: string }[];
   relatedLinks: { href: string; label: string }[];
+  sectionOrder: SectionId[];
 };
 
 const iconMap = {
@@ -76,13 +85,99 @@ function LandingPageContent(props: LandingPageProps) {
     await addDownload(info, format, url, mode);
   };
 
+  const renderers: Partial<Record<SectionId, React.ReactNode>> = {
+    body: (
+      <section key="body" aria-labelledby="guide-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0f766e] mb-3">Guide</p>
+        <h2 id="guide-title" className="text-2xl sm:text-3xl font-semibold text-[#0f172a] tracking-tight mb-3">{props.h1}</h2>
+        <p className="text-sm sm:text-base text-[#0f172a] font-medium leading-7 mb-4">{props.directAnswer}</p>
+        <div className="space-y-4 text-sm sm:text-base text-[#4b5563] leading-7">
+          {props.body.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+    ),
+    benefits: (
+      <section key="benefits" aria-labelledby="benefits-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+        <h2 id="benefits-title" className="text-lg font-semibold text-[#0f172a] mb-4">
+          {props.comparisonHeading ?? props.benefitsHeading ?? "Benefits"}
+        </h2>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {(props.comparisonPoints ?? props.benefits ?? []).map((benefit) => (
+            <div key={benefit} className="text-sm text-[#5f6b7a]">{benefit}</div>
+          ))}
+        </div>
+      </section>
+    ),
+    formatNotes: props.formatNotes ? (
+      <section key="formatNotes" aria-labelledby="format-notes-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+        <h2 id="format-notes-title" className="text-lg font-semibold text-[#0f172a] mb-4">{props.formatNotesHeading}</h2>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {props.formatNotes.map((item) => (
+            <div key={item.title}>
+              <h3 className="text-sm font-semibold text-[#0f172a] mb-1.5">{item.title}</h3>
+              <p className="text-sm text-[#5f6b7a] leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    ) : null,
+    steps: props.steps ? (
+      <section key="steps" aria-labelledby="steps-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+        <h2 id="steps-title" className="text-lg font-semibold text-[#0f172a] mb-4">How it works</h2>
+        <div className="space-y-3">
+          {props.steps.map((step, index) => (
+            <div key={step} className="flex gap-3 text-sm text-[#5f6b7a] leading-relaxed">
+              <span className="w-6 h-6 rounded-full bg-[#0f172a] text-white flex items-center justify-center text-xs font-semibold shrink-0">{index + 1}</span>
+              <p>{step}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    ) : null,
+    tips: (
+      <section key="tips" aria-labelledby="tips-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+        <h2 id="tips-title" className="text-lg font-semibold text-[#0f172a] mb-4">Tips</h2>
+        <ul className="space-y-2.5 text-sm text-[#4b5563] leading-relaxed list-disc pl-5">
+          {props.tips.map((tip) => (
+            <li key={tip}>{tip}</li>
+          ))}
+        </ul>
+      </section>
+    ),
+    troubleshooting: (
+      <section key="troubleshooting" aria-labelledby="troubleshooting-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+        <h2 id="troubleshooting-title" className="text-lg font-semibold text-[#0f172a] mb-4">Troubleshooting</h2>
+        <div className="space-y-3 text-sm text-[#4b5563] leading-7">
+          {props.troubleshooting.map((t) => (
+            <p key={t}>{t}</p>
+          ))}
+        </div>
+      </section>
+    ),
+    faqs: (
+      <section key="faqs" aria-labelledby="faq-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+        <h2 id="faq-title" className="text-lg font-semibold text-[#0f172a] mb-4">FAQs</h2>
+        <div className="space-y-4">
+          {props.faqs.map((faq) => (
+            <details key={faq.question} className="group">
+              <summary className="cursor-pointer list-none text-sm font-medium text-[#0f172a]">{faq.question}</summary>
+              <p className="mt-2 text-sm text-[#5f6b7a] leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    ),
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(props.faqs)) }}
       />
-      <Hero />
+      <Hero title={props.h1} description={props.description} />
 
       <div className="w-full max-w-4xl mx-auto space-y-6">
         <div className="flex justify-center">
@@ -106,87 +201,19 @@ function LandingPageContent(props: LandingPageProps) {
           </AnimatePresence>
         </div>
 
-        <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0f766e] mb-3">Guide</p>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-[#0f172a] tracking-tight mb-3">{props.h1}</h2>
-          <p className="text-sm sm:text-base text-[#4b5563] leading-7 mb-4">{props.intro}</p>
-          <div className="space-y-4 text-sm sm:text-base text-[#4b5563] leading-7">
-            {props.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </section>
+        {props.sectionOrder.map((id) => renderers[id])}
 
-        <section aria-labelledby="benefits-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
-          <h2 id="benefits-title" className="text-lg font-semibold text-[#0f172a] mb-4">
-            {props.comparisonPoints ? "Comparison points" : "Benefits"}
+        <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-[#0f172a] mb-3 flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-[#0f766e]" /> Legal &amp; safe use
           </h2>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {(props.comparisonPoints ?? props.benefits ?? []).map((benefit) => (
-              <div key={benefit} className="text-sm text-[#5f6b7a]">{benefit}</div>
-            ))}
-          </div>
-        </section>
-
-        <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-[#0f172a] mb-4">What this page covers</h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-3 text-sm text-[#4b5563] leading-7">
-              <p>This page answers the main search intent for the route and adds enough unique copy for Google to understand why the page exists.</p>
-              <p>It also points users toward related platform guides so they can move between topics without losing context.</p>
-            </div>
-            <div className="space-y-3 text-sm text-[#4b5563] leading-7">
-              <p>Use the form above to fetch a public link, then review the available formats or media options that appear below.</p>
-              <p>The lower sections are intentionally more descriptive than the hero, because that is where the page’s SEO value should live.</p>
-            </div>
-          </div>
-        </section>
-
-        {props.steps ? (
-          <section aria-labelledby="steps-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
-            <h2 id="steps-title" className="text-lg font-semibold text-[#0f172a] mb-4">How it works</h2>
-            <div className="space-y-3">
-              {props.steps.map((step, index) => (
-                <div key={step} className="flex gap-3 text-sm text-[#5f6b7a] leading-relaxed">
-                  <span className="w-6 h-6 rounded-full bg-[#0f172a] text-white flex items-center justify-center text-xs font-semibold shrink-0">{index + 1}</span>
-                  <p>{step}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        ) : null}
-
-        <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-[#0f172a] mb-4">Troubleshooting</h2>
-          <div className="space-y-4 text-sm text-[#4b5563] leading-7">
-            <p>If a link does not load, confirm that the source post or video is public and still available.</p>
-            <p>If only a few formats appear, that usually means the source platform does not expose more options for that media item.</p>
-            <p>If a download fails, try a different public URL, then compare the page above with the related guides below for the closest matching intent.</p>
-          </div>
-        </section>
-
-        <section aria-labelledby="faq-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
-          <h2 id="faq-title" className="text-lg font-semibold text-[#0f172a] mb-4">FAQs</h2>
-          <div className="space-y-4">
-            {props.faqs.map((faq) => (
-              <details key={faq.question} className="group">
-                <summary className="cursor-pointer list-none text-sm font-medium text-[#0f172a]">{faq.question}</summary>
-                <p className="mt-2 text-sm text-[#5f6b7a] leading-relaxed">{faq.answer}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        <section className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-[#0f172a] mb-4">More guides</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {props.relatedLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="flex items-center justify-between rounded-xl border border-[#d8ded2] px-4 py-3 text-sm text-[#4b5563] hover:bg-[#f3f5ef]">
-                <span>{link.label}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </Link>
-            ))}
-          </div>
+          <p className="text-sm text-[#4b5563] leading-relaxed">
+            Only download media you own or have permission to use — whether that&apos;s allowed depends on your jurisdiction and the rights holder&apos;s terms, not on Pullify. Read our{" "}
+            <Link href="/responsible-use" className="text-[#0f766e] underline underline-offset-2">Responsible Use Policy</Link>{" "}
+            and{" "}
+            <Link href="/copyright-dmca" className="text-[#0f766e] underline underline-offset-2">Copyright &amp; DMCA Policy</Link>{" "}
+            before downloading content you don&apos;t own.
+          </p>
         </section>
 
         <section aria-labelledby="links-title" className="bg-white border border-[#d8ded2] rounded-2xl p-6 sm:p-8">

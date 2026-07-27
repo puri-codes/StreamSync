@@ -67,120 +67,120 @@
       "page_type": "feature/format",
       "primary_keyword": "youtube to mp3 / download mp3",
       "primary_intent": "Format tool-use: convert/save audio specifically as MP3.",
-      "word_count": 210,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "CANNIBALIZATION RISK vs /download-audio - resolved by re-scoping (see redirects.md): this page owns the MP3-specific/high-volume 'to mp3' search term and codec/bitrate specifics."
+      "word_count": 620,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten via lib/seo-pages.ts + LandingPage.tsx: honest codec/bitrate framing (does not claim guaranteed .mp3 output), 5 unique FAQs, cross-links to /download-audio for the general case. ~620 unique words, flagged for top-up."
     },
     {
       "url": "/download-audio",
       "page_type": "feature/format",
       "primary_keyword": "extract audio from video / download audio track",
       "primary_intent": "Format tool-use: save the audio track in general (any supported audio format), for podcasts/lectures/interviews, not MP3-specific.",
-      "word_count": 210,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Re-scoped per redirects.md to avoid overlap with /download-mp3. Owns the broader 'audio-only' workflow and use cases."
+      "word_count": 590,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten, scoped to the general audio-only workflow (podcasts/lectures/any codec) distinct from the MP3-specific page. ~590 unique words, flagged for top-up."
     },
     {
       "url": "/download-thumbnail",
       "page_type": "feature/format",
       "primary_keyword": "download video thumbnail",
       "primary_intent": "Format tool-use: save the preview/cover image for a video or post.",
-      "word_count": 200,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "No overlap with other pages."
+      "word_count": 520,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten, no overlap with other pages. ~520 unique words, flagged for top-up."
     },
     {
       "url": "/download-playlist",
       "page_type": "feature/format",
       "primary_keyword": "download youtube playlist",
       "primary_intent": "Batch workflow: process multiple items from a playlist sequentially.",
-      "word_count": 200,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "No overlap; note product only supports single-link fetches today, playlist content must not overstate batch automation (Phase 4a - no fabricated capability claims)."
+      "word_count": 620,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten to explicitly disclose the single-link-at-a-time limitation rather than imply batch/bulk support - matches actual product behavior. ~620 unique words, flagged for top-up."
     },
     {
       "url": "/download-shorts",
       "page_type": "feature/format",
       "primary_keyword": "download youtube shorts",
       "primary_intent": "Short-form video tool-use, YouTube-specific.",
-      "word_count": 210,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Sub-intent of /youtube; owns the Shorts-specific depth (aspect ratio, short-form quality notes)."
+      "word_count": 540,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten, owns Shorts-specific depth distinct from /youtube. ~540 unique words, flagged for top-up."
     },
     {
       "url": "/download-reels",
       "page_type": "feature/format",
       "primary_keyword": "download instagram reels",
       "primary_intent": "Short-form video tool-use, Instagram-specific.",
-      "word_count": 210,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Sub-intent of /instagram; owns reel-specific depth (audio-only reel saves, no-watermark nuance for reels specifically)."
+      "word_count": 570,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten, owns reel-specific depth (audio-only reel saves, watermark nuance) distinct from /instagram. ~570 unique words, flagged for top-up."
     },
     {
       "url": "/download-1080p",
       "page_type": "feature/format",
       "primary_keyword": "download 1080p video",
       "primary_intent": "Quality-specific tool-use: full HD downloads.",
-      "word_count": 200,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Distinct from /download-4k by resolution tier; must accurately state availability depends on source (no fabricated guarantee)."
+      "word_count": 560,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with platform-by-platform availability notes; explicitly states Pullify never upscales. ~560 unique words, flagged for top-up."
     },
     {
       "url": "/download-4k",
       "page_type": "feature/format",
       "primary_keyword": "download 4k video",
       "primary_intent": "Quality-specific tool-use: ultra-HD downloads.",
-      "word_count": 200,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Same accuracy constraint as 1080p page."
+      "word_count": 580,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with same no-upscaling honesty constraint as 1080p page, plus platform availability notes. ~580 unique words, flagged for top-up."
     },
     {
       "url": "/download-video-no-watermark",
       "page_type": "feature/format",
       "primary_keyword": "download video without watermark",
       "primary_intent": "Cross-platform explainer: which platforms' public formats are watermark-free at the source vs which aren't; tool does not remove watermarks.",
-      "word_count": 220,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Must explicitly NOT claim watermark removal (Phase 4a legal/factual accuracy) - only that it exposes whatever the source provides. Cross-links to /tiktok and /download-reels rather than duplicating their depth."
+      "word_count": 690,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with explicit, repeated statement that Pullify does not remove watermarks and TikTok's is burned into the source - avoids the common misleading claim other 'no watermark' tools make. Cross-links to /tiktok, /download-reels, /compare/snaptik-alternative. ~690 unique words, closest to target of Batch B pages."
     },
     {
       "url": "/compare/y2mate-alternative",
       "page_type": "comparison",
       "primary_keyword": "y2mate alternative",
       "primary_intent": "Comparison/competitor-displacement: convince a Y2Mate searcher to try Pullify.",
-      "word_count": 250,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "No overlap with other compare pages once each names its actual competitor's distinguishing traits instead of generic 'cleaner interface' copy."
+      "word_count": 540,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with specific Y2Mate comparison points (multi-platform coverage, real format list vs presets, persistent queue) instead of generic 'cleaner interface' copy. ~540 unique words, flagged for top-up."
     },
     {
       "url": "/compare/savefrom-alternative",
       "page_type": "comparison",
       "primary_keyword": "savefrom alternative",
       "primary_intent": "Comparison/competitor-displacement.",
-      "word_count": 250,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Same as above."
+      "word_count": 520,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with SaveFrom-specific comparison points (no browser extension required vs extension-based detection). ~520 unique words, flagged for top-up."
     },
     {
       "url": "/compare/snaptik-alternative",
       "page_type": "comparison",
       "primary_keyword": "snaptik alternative",
       "primary_intent": "Comparison/competitor-displacement, TikTok-specific.",
-      "word_count": 250,
-      "status": "not_started",
-      "last_touched_commit": null,
-      "notes": "Overlaps conceptually with /tiktok and /download-video-no-watermark - owns the 'vs a specific competitor' angle only, not general TikTok how-to content."
+      "word_count": 540,
+      "status": "in_progress",
+      "last_touched_commit": "batch-b",
+      "notes": "Rewritten with the same honest no-watermark-removal disclosure as /download-video-no-watermark, framed as the Snaptik-specific comparison angle. ~540 unique words, flagged for top-up."
     },
     {
       "url": "/about",
